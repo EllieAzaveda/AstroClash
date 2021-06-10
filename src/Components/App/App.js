@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from '../Header/Header';
 import Astrology from '../Astrology/Astrology';
 import Astronomy from '../Astronomy/Astronomy';
 
@@ -13,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <h1>Astro Clash</h1>
+        <Header />
         <Astrology />
         <Astronomy />
       </>
