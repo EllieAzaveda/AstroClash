@@ -25,7 +25,7 @@ class Astronomy extends Component {
 
     render() {
         return (
-          <div>
+          <div className='astronomy-card'>
             <h4>{this.state.dailyFact.title}</h4>
             <img className='astronomy-image' src={this.state.dailyFact.url} alt={`${this.state.dailyFact.title}`}/>
             <h4>{this.state.dailyFact.explanation}</h4>
