@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchSingleHoroscope } from '../../Utils/APICalls';
+import { signs } from './../../Utils/signs.js'
 import './Astrology.css';
 
 class Astrology extends Component {
@@ -24,8 +25,11 @@ class Astrology extends Component {
     }
 
     render() {
+      // let signImg = signs[4].img_path
+      let signImg = 'Leo.png'
         return (
-          <div>
+          <div className='astrology-card'>
+            <img className='astrology-image' src={`${signImg}`} alt='Leo'/>
             <h4>Compatibility: {this.state.horoscopeData.compatibility} </h4>
             <h4>Lucky Number: {this.state.horoscopeData.lucky_number} </h4>
             <h4>Lucky Time: {this.state.horoscopeData.lucky_time} </h4>
