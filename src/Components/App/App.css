@@ -1,8 +1,6 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start; */
 }
