@@ -25,7 +25,9 @@ class App extends Component {
         <Form
           setZodiacSign={this.setZodiacSign}
         />
-        <Astrology />
+        <Astrology
+          selectedSign={this.selectedSign}
+        />
         <Astronomy />
       </>
     )
