@@ -24,7 +24,6 @@ class Astronomy extends Component {
     }
 
     render() {
-      console.log(this.state.dailyFact)
         return (
           <div>
             <h4>{this.state.dailyFact.title}</h4>
