@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { signs } from './../../Utils/signs.js'
 import './Form.css';
 
 class Form extends Component {
@@ -10,36 +9,39 @@ class Form extends Component {
       }
   }
 
+  handleChange = (event) => {
+    this.setState({ selectedSign: event.target.value })
+  }
+
   handleClick = (event) => {
     event.preventDefault()
-    this.setState({ selectValue: event.target.value });
-    this.props.setZodiacSign(this.state.selectValue)
+    this.props.setZodiacSign(this.state.selectedSign)
   }
 
   render() {
     return (
       <>
         <form>
-          <select
-            className='sign-dropdown'
+          <select className='sign-dropdown'
             value={this.state.selectValue}
-            onChange={this.handleClick}
-          >
+            onChange={(event) => this.handleChange(event)}>
             <option value='default-li'>Choose Your Sign</option>
-            <option value='Aries'>Aries (March 21–April 19)</option>
-            <option value='Taurus'>Taurus (April 20–May 20)</option>
-            <option value='Gemini'>Gemini (May 21–June 21)</option>
-            <option value='Cancer'>Cancer (June 22–July 22)</option>
-            <option value='Leo'>Leo (July 23–August 22)</option>
-            <option value='Virgo'>Virgo (August 23–September 22)</option>
-            <option value='Libra'>Libra (September 23–October 23)</option>
-            <option value='Scorpius'>Scorpius (October 24–November 21)</option>
-            <option value='Sagittarius'>Sagittarius (November 22–December 21)</option>
-            <option value='Capricorn'>Capricorn (December 22–January 19)</option>
-            <option value='Aquarius'>Aquarius (January 20–February 18)</option>
-            <option value='Pisces'>Pisces (February 19–March 20)</option>
+            <option value='aries'>Aries (Mar 21 – Apr 19)</option>
+            <option value='taurus'>Taurus (Apr 20 – May 20)</option>
+            <option value='gemini'>Gemini (May 21 – Jun 21)</option>
+            <option value='cancer'>Cancer (Jun 22 – Jul 22)</option>
+            <option value='leo'>Leo (Jul 23 – Aug 22)</option>
+            <option value='virgo'>Virgo (Aug 23 – Sep 22)</option>
+            <option value='libra'>Libra (Sep 23 – Oct 23)</option>
+            <option value='scorpius'>Scorpio (Oct 24 – Nov 21)</option>
+            <option value='sagittarius'>Sagittarius (Nov 22 – Dec 21)</option>
+            <option value='capricorn'>Capricorn (Dec 22 – Jan 19)</option>
+            <option value='aquarius'>Aquarius (Jan 20 – Feb 18)</option>
+            <option value='pisces'>Pisces (Feb 19 – Mar 20)</option>
           </select>
-          <button onClick={(event) => this.handleClick(event)}>Update My Sign</button>
+          <button data-cy='submit-button'
+            className='submit-button'
+            onClick={(event) => this.handleClick(event)}>See My Horoscope</button>
         </form>
       </>
     )
