@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AstronomyFact from '../AstronomyFact/AstronomyFact';
 import { fetchDailyFact } from '../../Utils/APICalls';
 import './Astronomy.css';
 
@@ -25,13 +26,10 @@ class Astronomy extends Component {
 
     render() {
         return (
-          <div className='astronomy-card'>
-            <h4>{this.state.dailyFact.title}</h4>
-            <img className='astronomy-image' src={this.state.dailyFact.url} alt={`${this.state.dailyFact.title}`}/>
-            <h4>{this.state.dailyFact.explanation}</h4>
-            <h4>{this.state.dailyFact.copyright}</h4>
-          </div>
-        );
+          <AstronomyFact
+            dailyFact={this.state.dailyFact}
+          />
+        )
     }
 }
 
