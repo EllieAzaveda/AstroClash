@@ -4,10 +4,10 @@ import './AstronomyFact.css';
 const AstronomyFact = ({ dailyFact, saveFact }) => {
   return (
     <div className='astronomy-card'>
-      <h4>{dailyFact.title}</h4>
       <img className='astronomy-image' src={dailyFact.url} alt={`${dailyFact.title}`}/>
-      <h4>{dailyFact.explanation}</h4>
-      <h4>{dailyFact.copyright}</h4>
+      <h3 className='title'>..| {dailyFact.title} |..</h3>
+      <h5 className='explanation'>{dailyFact.explanation}</h5>
+      <h5>{dailyFact.copyright}</h5>
       <button className='save-button' onClick={(event) => saveFact(dailyFact)}>Save Fact</button>
     </div>
   )
