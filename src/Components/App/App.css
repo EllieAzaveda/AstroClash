@@ -1,3 +1,9 @@
+body {
+  background: linear-gradient(to bottom right, #030415, #000C35, #030415, #162432, #000C35, #030415);
+  height: 100vh;
+  overflow: hidden;
+}
+
 .app {
   display: flex;
   flex-direction: column;
