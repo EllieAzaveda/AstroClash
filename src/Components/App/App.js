@@ -13,7 +13,8 @@ class App extends Component {
       this.state = {
         allSigns: signs,
         selectedSign: null,
-        isClicked: false
+        isClicked: false,
+        savedHoroscopes: []
       }
   }
 
@@ -23,26 +24,37 @@ class App extends Component {
     this.setState({ isClicked: true });
   };
 
+  saveScope = (horoscopeData) => {
+    if (!this.state.savedHoroscopes.find(scope => scope.current_date === horoscopeData.current_date)) {
+      console.log("savedScope", horoscopeData)
+      this.setState({ savedHoroscopes: [...this.state.savedHoroscopes, horoscopeData]})
+      localStorage.setItem('savedHoroscopes', JSON.stringify([...this.state.savedHoroscopes, horoscopeData]));
+    }
+  }
+
   render() {
     return (
       <>
-        <article className='App'>
+        <article className='app'>
           <Header />
           <Route exact path="/" render={() => {
             return <Form setZodiacSign={this.setZodiacSign} />
-            }}
+          }}
           />
-          <Route exact path="/" render={() => {
-            return <Astrology
-              selectedSign={this.state.selectedSign}
-              isClicked={this.state.isClicked}
+          <div className='app-container'>
+            <Route exact path="/" render={() => {
+              return <Astronomy />
+            }}
             />
-            }}
-          />
-          <Route exact path="/" render={() => {
-            return <Astronomy />
-            }}
-          />
+            <Route exact path="/" render={() => {
+              return <Astrology
+                selectedSign={this.state.selectedSign}
+                isClicked={this.state.isClicked}
+                saveScope={this.saveScope}
+              />
+              }}
+            />
+          </div>
         </article>
       </>
     )
