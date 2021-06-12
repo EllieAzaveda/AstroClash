@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import Header from '../Header/Header';
-import Astrology from '../Astrology/Astrology';
 import Astronomy from '../Astronomy/Astronomy';
+import Astrology from '../Astrology/Astrology';
+import SavedFacts from '../SavedFacts/SavedFacts';
+import SavedScopes from '../SavedScopes/SavedScopes';
 import Form from '../Form/Form';
 import { signs } from './../../Utils/signs.js'
 import './App.css';
@@ -34,9 +36,22 @@ class App extends Component {
 
   saveFact = (dailyFact) => {
     if (!this.state.savedFacts.find(fact => fact.date === dailyFact.date)) {
-      console.log("savedFacts", dailyFact)
       this.setState({ savedFacts: [...this.state.savedFacts, dailyFact]})
       localStorage.setItem('savedFacts', JSON.stringify([...this.state.savedFacts, dailyFact]));
+    }
+  }
+
+  getSavedScopes = () => {
+    let retrievedScopes = localStorage.getItem('savedHoroscopes');
+    if (retrievedScopes.length > 0) {
+      return retrievedScopes;
+    }
+  }
+
+  getSavedFacts = () => {
+    let retrievedFacts = localStorage.getItem('savedFacts');
+    if (retrievedFacts.length > 0) {
+      return retrievedFacts;
     }
   }
 
@@ -44,7 +59,10 @@ class App extends Component {
     return (
       <>
         <article className='app'>
-          <Header />
+          <Header
+            savedHoroscopes={this.displaySavedScopes}
+            savedFacts={this.displaySavedFacts}
+          />
           <Route exact path="/" render={() => {
             return <Form setZodiacSign={this.setZodiacSign} />
           }}
@@ -64,6 +82,7 @@ class App extends Component {
               />
               }}
             />
+
           </div>
         </article>
       </>
