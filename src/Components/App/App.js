@@ -14,7 +14,8 @@ class App extends Component {
         allSigns: signs,
         selectedSign: null,
         isClicked: false,
-        savedHoroscopes: []
+        savedHoroscopes: [],
+        savedFacts: []
       }
   }
 
@@ -26,9 +27,16 @@ class App extends Component {
 
   saveScope = (horoscopeData) => {
     if (!this.state.savedHoroscopes.find(scope => scope.current_date === horoscopeData.current_date)) {
-      console.log("savedScope", horoscopeData)
       this.setState({ savedHoroscopes: [...this.state.savedHoroscopes, horoscopeData]})
       localStorage.setItem('savedHoroscopes', JSON.stringify([...this.state.savedHoroscopes, horoscopeData]));
+    }
+  }
+
+  saveFact = (dailyFact) => {
+    if (!this.state.savedFacts.find(fact => fact.date === dailyFact.date)) {
+      console.log("savedFacts", dailyFact)
+      this.setState({ savedFacts: [...this.state.savedFacts, dailyFact]})
+      localStorage.setItem('savedFacts', JSON.stringify([...this.state.savedFacts, dailyFact]));
     }
   }
 
@@ -43,7 +51,9 @@ class App extends Component {
           />
           <div className='app-container'>
             <Route exact path="/" render={() => {
-              return <Astronomy />
+              return <Astronomy
+                saveFact={this.saveFact}
+              />
             }}
             />
             <Route exact path="/" render={() => {
