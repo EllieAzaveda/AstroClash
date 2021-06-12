@@ -1,62 +1,62 @@
 export const signs = [
   {
-    name: 'Aries',
+    name: 'aries',
     date_range: 'Mar 21 – Apr 19',
-    img_path: 'Aries.png'
+    img_path: 'aries.png'
   },
   {
-    name: 'Taurus',
+    name: 'taurus',
     date_range: 'Apr 20 – May 20',
-    img_path: 'Taurus.png'
+    img_path: 'taurus.png'
   },
   {
-    name: 'Gemini',
+    name: 'gemini',
     date_range: 'May 21 – Jun 21',
-    img_path: 'Gemini.png'
+    img_path: 'gemini.png'
   },
   {
-    name: 'Cancer',
+    name: 'cancer',
     date_range: 'Jun 22 – Jul 22',
-    img_path: 'Cancer.png'
+    img_path: 'cancer.png'
   },
   {
-    name: 'Leo',
+    name: 'leo',
     date_range: 'Jul 23 – Aug 22',
-    img_path: 'Leo.png'
+    img_path: 'leo.png'
   },
   {
-    name: 'Virgo',
+    name: 'virgo',
     date_range: 'Aug 23 – Sep 22',
-    img_path: 'Virgo.png'
+    img_path: 'virgo.png'
   },
   {
-    name: 'Libra',
+    name: 'libra',
     date_range: 'Sep 23 – Oct 23',
-    img_path: 'Libra.png'
+    img_path: 'libra.png'
   },
   {
-    name: 'Scorpio',
+    name: 'scorpio',
     date_range: 'Oct 24 – Nov 21',
-    img_path: 'Scorpio.png'
+    img_path: 'scorpio.png'
   },
   {
-    name: 'Sagittarius',
+    name: 'sagittarius',
     date_range: 'Nov 22 – Dec 21',
-    img_path: 'Sagittarius.png'
+    img_path: 'sagittarius.png'
   },
   {
-    name: 'Capricorn',
+    name: 'capricorn',
     date_range: 'Dec 22 – Jan 19',
-    img_path: 'Capricorn.png'
+    img_path: 'capricorn.png'
   },
   {
-    name: 'Aquarius',
+    name: 'aquarius',
     date_range: 'Jan 20 – Feb 18',
-    img_path: 'Aquarius.png'
+    img_path: 'aquarius.png'
   },
   {
-    name: 'Pisces',
+    name: 'pisces',
     date_range: 'Feb 19 – Mar 20',
-    img_path: 'Pisces.png'
-  },
+    img_path: 'pisces.png'
+  }
 ];
