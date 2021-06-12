@@ -2,7 +2,7 @@ import React from 'react';
 import HoroscopeCard from '../HoroscopeCard/HoroscopeCard';
 import './Astrology.css';
 
-const Astrology = ({ selectedSign, isClicked }) => {
+const Astrology = ({ selectedSign, isClicked, saveScope }) => {
   return (
     <>
       <div className='astrology-card'>
@@ -14,6 +14,7 @@ const Astrology = ({ selectedSign, isClicked }) => {
         {isClicked &&
           <HoroscopeCard
             selectedSign={selectedSign}
+            saveScope={saveScope}
           />
         }
       </div>
