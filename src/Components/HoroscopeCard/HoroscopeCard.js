@@ -28,15 +28,14 @@ class HoroscopeCard extends Component {
   render() {
     return (
       <div className='astrology-card'>
-        <h4>{this.state.signName} </h4>
+        <h4>..| {this.state.signName} |..</h4>
         <img className='astrology-image' src={`${this.state.signData.img_path}`} alt='Leo'/>
+        <h4>Daily Horoscope: {this.state.horoscopeData.description} </h4>
         <h4>Compatibility: {this.state.horoscopeData.compatibility} </h4>
         <h4>Lucky Number: {this.state.horoscopeData.lucky_number} </h4>
-        <h4>Lucky Time: {this.state.horoscopeData.lucky_time} </h4>
         <h4>Color: {this.state.horoscopeData.color} </h4>
-        <h4>Date Range: {this.state.horoscopeData.date_range} </h4>
         <h4>Mood: {this.state.horoscopeData.mood} </h4>
-        <h4>Description: {this.state.horoscopeData.description} </h4>
+        <button className='save-button' onClick={(event) => this.props.saveScope(this.state.horoscopeData)}>Save Horoscope</button>
       </div>
     )
   }
