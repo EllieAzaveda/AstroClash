@@ -28,6 +28,7 @@ class Astronomy extends Component {
         return (
           <AstronomyFact
             dailyFact={this.state.dailyFact}
+            saveFact={this.props.saveFact}
           />
         )
     }
