@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import SavedCard from '../SavedFacts/SavedFacts';
+import SavedCard from '../SavedCard/SavedCard';
 import './SavedScopes.css';
 
 class SavedScopes extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        savedHoroscopes: props.savedHoroscopes,
-        error: ''
+        savedHoroscopes: props.savedHoroscopes
       }
   }
 
   displayScopesCards = () => {
-    if (!this.props.savedHoroscopes) {
+    if (!this.state.savedHoroscopes.length) {
       return (
         <div className='nothing-saved'>
-          <NavLink to='/'><button data-cy='home-button' className='home-button'>Back to Home Page</button></NavLink>
           <h1>🔮 You don't have any saved horoscopes... Save your first prophecy today! 🔮</h1>
         </div>
       )
@@ -24,7 +22,6 @@ class SavedScopes extends Component {
       return this.state.savedHoroscopes.map(scope => {
         return (
           <>
-          <NavLink to='/'><button data-cy='home-button' className='home-button'>Back to Home Page</button></NavLink>
           <SavedCard
             date={scope.date}
             image={scope.img_path}
@@ -37,16 +34,21 @@ class SavedScopes extends Component {
   }
 
   render() {
-    console.log("IN SCOPES", this.state.savedHoroscopes)
     return (
       <>
         {this.state.error  &&
-          <h3>{this.state.savedHoroscopes}</h3>
+          <>
+            <NavLink to='/'><button data-cy='home-button' className='home-button'>Back to Home Page</button></NavLink>
+            <h3>{this.state.savedHoroscopes}</h3>
+          </>
         }
         {!this.state.error &&
-        <div className='saved-scopes-display'>
-          {this.displayScopesCards()}
-        </div>
+          <>
+            <NavLink to='/'><button data-cy='home-button' className='home-button'>Back to Home Page</button></NavLink>
+            <div className='saved-scopes-display'>
+              {this.displayScopesCards()}
+            </div>
+          </>
         }
       </>
     )
