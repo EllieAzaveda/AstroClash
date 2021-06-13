@@ -32,15 +32,13 @@ class App extends Component {
 
   saveScope = (horoscopeData) => {
     if (!this.state.savedHoroscopes.find(scope => scope.description === horoscopeData.description)) {
-      this.state.savedHoroscopes.push(horoscopeData)
-      // this.setState({ savedHoroscopes: [...this.state.savedHoroscopes, horoscopeData]})
+      this.setState({ savedHoroscopes: [...this.state.savedHoroscopes, horoscopeData]})
       // localStorage.setItem('savedHoroscopes', JSON.stringify([...this.state.savedHoroscopes]));
     }
   }
 
   saveFact = (dailyFact) => {
     if (!this.state.savedFacts.find(fact => fact.date === dailyFact.date)) {
-      // this.state.savedFacts.push(dailyFact)
       this.setState({ savedFacts: [...this.state.savedFacts, dailyFact]})
       // localStorage.setItem('savedFacts', JSON.stringify([...this.state.savedFacts]));
     }
