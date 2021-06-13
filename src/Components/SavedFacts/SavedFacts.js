@@ -7,29 +7,49 @@ class SavedFacts extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        savedFacts: props.getSavedFacts()
+        savedFacts: props.savedFacts,
+        error: ''
       }
   }
 
-  displayCards = () => {
-    console.log("savedFacts", this.state.savedFacts)
-    return this.state.savedFacts.map(fact => {
+  displayFactsCards = () => {
+    if (!this.state.savedFacts) {
       return (
-        <SavedCard
-          date={fact.date}
-          image={fact.url}
-          description={fact.explanation}
-        />
+        <div className='nothing-saved'>
+          <NavLink to='/'><button data-cy='home-button' className='home-button'>Back to Home Page</button></NavLink>
+          <h1>🪐 You don't have any saved astronomy facts... Save your first fact today! 🌙</h1>
+        </div>
       )
-    })
+    } else {
+      this.state.savedFacts.map(fact => {
+        return (
+          <>
+            <NavLink to='/'><button data-cy='home-button' className='home-button'>Back to Home Page</button></NavLink>
+            <SavedCard
+              date={fact.date}
+              image={fact.url}
+              description={fact.explanation}
+            />
+          </>
+        )
+      })
+    }
   }
 
   render() {
+    console.log("IN FACTS", this.state.savedFacts)
+
     return (
-      <div className='saved-facts-display'>
-        <NavLink to='/'><button data-cy='home-button' className='home-button'>Back to Home Page</button></NavLink>
-        {this.displayCards()}
-      </div>
+      <>
+        {this.state.error  &&
+          <h3>{this.state.savedFacts}</h3>
+        }
+        {!this.state.error  &&
+          <div className='saved-facts-display'>
+            {this.displayFactsCards()}
+          </div>
+        }
+      </>
     )
   }
 }

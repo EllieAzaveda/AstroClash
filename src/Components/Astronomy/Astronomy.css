@@ -41,14 +41,9 @@
 
 .main-title {
   font-size: 4vh;
-  margin-top: 10vh;
+  margin: 6vh 0;
   border-top: .05em solid #FBEBB2;
   border-bottom: .05em solid #FBEBB2;
-}
-
-.main-astronomy-image {
-  width: 100%;
-  margin-top: 12vh;
 }
 
 .astronomy-image {
@@ -57,6 +52,11 @@
   margin-top: 0em;
   border-radius: 15px 15px 0% 0%;
   border-bottom: .05em solid #FBEBB2;
+}
+
+.main-astronomy-image {
+  width: 100%;
+  margin-top: 12vh;
 }
 
 h5 {

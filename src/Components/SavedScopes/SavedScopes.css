@@ -1,0 +1,19 @@
+.saved-scopes-display {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.nothing-saved {
+  margin-top: 1vh;
+  color: #1A1A1A;
+  text-align: center;
+  background-color: rgb(212, 209, 185, 0.8);
+  border-radius: 6px;
+}
+
+.home-button {
+  align-self: baseline;
+}

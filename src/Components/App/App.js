@@ -24,39 +24,31 @@ class App extends Component {
 
   setZodiacSign = (sign) => {
     let foundSign = this.state.allSigns.find(zodiac => zodiac.name === sign);
-    this.setState({ selectedSign: foundSign });
-    this.setState({ isClicked: true });
+    if (foundSign.name !== this.state.selectedSign) {
+      this.setState({ selectedSign: foundSign });
+      this.setState({ isClicked: true });
+    }
   };
 
   saveScope = (horoscopeData) => {
-    if (!this.state.savedHoroscopes.find(scope => scope.current_date === horoscopeData.current_date)) {
-      this.setState({ savedHoroscopes: [...this.state.savedHoroscopes, horoscopeData]})
-      localStorage.setItem('savedHoroscopes', JSON.stringify([...this.state.savedHoroscopes, horoscopeData]));
+    if (!this.state.savedHoroscopes.find(scope => scope.description === horoscopeData.description)) {
+      this.state.savedHoroscopes.push(horoscopeData)
+      // this.setState({ savedHoroscopes: [...this.state.savedHoroscopes, horoscopeData]})
+      // localStorage.setItem('savedHoroscopes', JSON.stringify([...this.state.savedHoroscopes]));
     }
   }
 
   saveFact = (dailyFact) => {
     if (!this.state.savedFacts.find(fact => fact.date === dailyFact.date)) {
+      // this.state.savedFacts.push(dailyFact)
       this.setState({ savedFacts: [...this.state.savedFacts, dailyFact]})
-      localStorage.setItem('savedFacts', JSON.stringify([...this.state.savedFacts, dailyFact]));
-    }
-  }
-
-  getSavedScopes = () => {
-    var storage = window.localStorage;
-    if (storage[0].length > 0) {
-      return storage[0];
-    }
-  }
-
-  getSavedFacts = () => {
-    var storage = window.localStorage;
-    if (storage[1].length > 0) {
-      return storage[1];
+      // localStorage.setItem('savedFacts', JSON.stringify([...this.state.savedFacts]));
     }
   }
 
   render() {
+    console.log("IN APP", this.state.selectedSign)
+
     return (
       <>
         <article className='app'>
@@ -65,7 +57,10 @@ class App extends Component {
             savedFacts={this.displaySavedFacts}
           />
           <Route exact path="/" render={() => {
-            return <Form setZodiacSign={this.setZodiacSign} />
+            return <Form
+              setZodiacSign={this.setZodiacSign}
+              isClicked={this.state.isClicked}
+            />
           }}
           />
           {this.state.error &&
@@ -89,21 +84,19 @@ class App extends Component {
               />
               }}
             />
+            <Route exact path="/saved-astronomy-facts" render={() => {
+              return <SavedFacts
+                updateSavedFacts={this.state.savedFacts}
+              />
+              }}
+            />
+            <Route exact path="/saved-horoscopes" render={() => {
+              return <SavedScopes
+                savedHoroscopes={this.state.savedHoroscopes}
+              />
+              }}
+            />
           </div>
-          <Route path="/saved-astronomy-facts" render={() => {
-            return <SavedFacts
-              selectedSign={this.state.savedFacts}
-              getSavedFacts={this.getSavedFacts}
-            />
-            }}
-          />
-          <Route path="/saved-horoscopes" render={() => {
-            return <SavedScopes
-              selectedSign={this.state.savedHoroscopes}
-              displaySavedScopes={this.getSavedScopes}
-            />
-            }}
-          />
           </Switch>
           }
         </article>
