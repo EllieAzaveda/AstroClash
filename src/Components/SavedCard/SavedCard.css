@@ -1,6 +1,10 @@
 .saved-card {
-  height: 15em;
-  width: 15em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 15vw;
 }
 
 .saved-image {

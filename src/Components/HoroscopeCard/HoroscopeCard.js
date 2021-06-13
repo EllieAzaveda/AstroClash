@@ -39,7 +39,7 @@ class HoroscopeCard extends Component {
           <button className='save-button'>
             <img className='save-button-img' src='save-img.png' alt='save button' onClick={(event) => this.props.saveScope(this.state.horoscopeData)}/>
           </button>
-          <label for='save-button'>Save this Horoscope</label>
+          <label htmlFor='save-button'>Save this Horoscope</label>
         </h5>
       </div>
     )

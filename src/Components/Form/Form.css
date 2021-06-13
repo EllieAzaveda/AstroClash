@@ -7,10 +7,12 @@
 
 .submit-button,
 .sign-dropdown {
+  height: 3vh;
   align-self: center;
   margin: 1em 0;
   background-color: rgb(52,91,90, 0.4);
   border-color: #122021;
+  font-weight: bold;
 }
 
 .submit-button {
@@ -34,7 +36,8 @@
 
 .scopes-label,
 .facts-label {
-  font-size: 2.5vh;
+  font-size: 2.2vh;
+  font-weight: bold;
   background-color: rgb(212, 209, 185, 0.3);
 }
 
