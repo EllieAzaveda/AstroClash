@@ -36,7 +36,7 @@ export const signs = [
   },
   {
     name: 'scorpio',
-    date_range: 'Oct 24 – Nov 21',
+    date_range: 'Oct 23 – Nov 22',
     img_path: 'scorpio.png'
   },
   {
