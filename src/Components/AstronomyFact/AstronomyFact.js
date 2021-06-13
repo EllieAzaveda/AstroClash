@@ -8,7 +8,12 @@ const AstronomyFact = ({ dailyFact, saveFact }) => {
       <h3 className='title'>..| {dailyFact.title} |..</h3>
       <h5 className='explanation'>{dailyFact.explanation}</h5>
       <h5>{dailyFact.copyright}</h5>
-      <button className='save-button' onClick={(event) => saveFact(dailyFact)}>Save Fact</button>
+      <h5 className='save-feature'>
+        <button className='save-button'>
+          <img className='save-button-img'src='save-img.png' alt='save button' onClick={(event) => saveFact(dailyFact)}/>
+        </button>
+        <label for='save-button'>Save this Fact</label>
+      </h5>
     </div>
   )
 }
