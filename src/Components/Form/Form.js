@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import './Form.css';
 
 class Form extends Component {
@@ -21,7 +22,13 @@ class Form extends Component {
   render() {
     return (
       <>
-        <form>
+        <form className='form'>
+          <NavLink to='/saved-astronomy-facts'>
+            <button className='saved-button saved-facts-btn'>
+              <img className='moon-icon' src='./moon.png' alt='moon icon'/>
+            </button>
+          </NavLink>
+          <label for='saved-facts-btn' className='facts-label'>Saved Astronomy Facts</label>
           <select className='sign-dropdown'
             value={this.state.selectValue}
             onChange={(event) => this.handleChange(event)}>
@@ -41,7 +48,15 @@ class Form extends Component {
           </select>
           <button data-cy='submit-button'
             className='submit-button'
-            onClick={(event) => this.handleClick(event)}>See My Horoscope</button>
+            onClick={(event) => this.handleClick(event)}>
+            SHOW ME THE DIFFERENCE
+          </button>
+          <label for='saved-facts-btn' className='scopes-label'>Saved Horoscopes</label>
+          <NavLink to='/saved-horoscopes'>
+            <button className='saved-button saved-scopes-btn'>
+              <img className='moon-icon' src='./moon.png' alt='moon icon'/>
+            </button>
+          </NavLink>
         </form>
       </>
     )
