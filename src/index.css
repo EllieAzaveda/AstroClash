@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
 
 body {
+  background-image: url('./map.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
   font-family: -apple-system, 'Mate SC', serif;
   -webkit-font-smoothing: antialiased;
