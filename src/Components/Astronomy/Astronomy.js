@@ -8,6 +8,7 @@ class Astronomy extends Component {
         super(props);
         this.state = {
           dailyFact: {},
+          isClicked: props.isClicked,
           error: ''
         }
     }
@@ -26,10 +27,22 @@ class Astronomy extends Component {
 
     render() {
         return (
-          <AstronomyFact
-            dailyFact={this.state.dailyFact}
-            saveFact={this.props.saveFact}
-          />
+          <>
+          {!this.state.isClicked &&
+            <div className='main-astronomy-card'>
+              <div  className='card-border'>
+                <img className='main-astronomy-image' src='history-astro.png' alt='history of astronomy'/>
+                <h3 className='main-title'>..| Astronomy |..</h3>
+              </div>
+            </div>
+          }
+          {this.state.isClicked &&
+            <AstronomyFact
+              dailyFact={this.state.dailyFact}
+              saveFact={this.props.saveFact}
+            />
+          }
+          </>
         )
     }
 }
