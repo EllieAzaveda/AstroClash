@@ -67,7 +67,6 @@ class App extends Component {
             <h3 className='error-msg'>{this.state.error}</h3>
           }
           {!this.state.error &&
-          <Switch>
           <div className='app-container'>
             <Route exact path="/" render={() => {
               return <Astronomy
@@ -86,7 +85,7 @@ class App extends Component {
             />
             <Route exact path="/saved-astronomy-facts" render={() => {
               return <SavedFacts
-                updateSavedFacts={this.state.savedFacts}
+                savedFacts={this.state.savedFacts}
               />
               }}
             />
@@ -97,7 +96,6 @@ class App extends Component {
               }}
             />
           </div>
-          </Switch>
           }
         </article>
       </>
