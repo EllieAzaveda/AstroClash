@@ -35,7 +35,12 @@ class HoroscopeCard extends Component {
         <h5>Lucky Number: {this.state.horoscopeData.lucky_number} </h5>
         <h5>Color: {this.state.horoscopeData.color} </h5>
         <h5>Love Compatibility: {this.state.horoscopeData.compatibility} </h5>
-        <button className='save-button' onClick={(event) => this.props.saveScope(this.state.horoscopeData)}>Save Horoscope</button>
+        <h5 className='save-feature'>
+          <button className='save-button'>
+            <img className='save-button-img' src='save-img.png' alt='save button' onClick={(event) => this.props.saveScope(this.state.horoscopeData)}/>
+          </button>
+          <label for='save-button'>Save this Horoscope</label>
+        </h5>
       </div>
     )
   }
