@@ -6,8 +6,11 @@ const Astrology = ({ selectedSign, isClicked, saveScope }) => {
   return (
     <>
         {!isClicked &&
-          <div className='astrology-card'>
-            <h4>Select Your Sign!</h4>
+          <div className='main-astrology-card'>
+            <div  className='card-border'>
+              <img className='main-astrology-image' src='zodiac-wheel.jpeg' alt='zodiac wheel'/>
+              <h3 className='main-title'>..| Astrology |..</h3>
+            </div>
           </div>
         }
         {isClicked &&
