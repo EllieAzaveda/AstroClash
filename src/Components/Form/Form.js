@@ -28,10 +28,12 @@ class Form extends Component {
               <img className='moon-icon' src='./moon.png' alt='moon icon'/>
             </button>
           </NavLink>
-          <label for='saved-facts-btn' className='facts-label'>Saved Astronomy Facts</label>
+          <label htmlFor='saved-facts-btn' className='facts-label'>Saved Astronomy Facts</label>
           <select className='sign-dropdown'
             value={this.state.selectValue}
-            onChange={(event) => this.handleChange(event)}>
+            onChange={(event) => this.handleChange(event)}
+            style={{fontFamily: "Mate SC, serif"}}
+          >
             <option value='default-li'>CHOOSE YOUR SIGN</option>
             <option value='aries'>Aries (Mar 21 – Apr 19)</option>
             <option value='taurus'>Taurus (Apr 20 – May 20)</option>
@@ -48,10 +50,12 @@ class Form extends Component {
           </select>
           <button data-cy='submit-button'
             className='submit-button'
-            onClick={(event) => this.handleClick(event)}>
+            onClick={(event) => this.handleClick(event)}
+            style={{fontFamily: "Mate SC, serif"}}
+          >
             SHOW ME THE DIFFERENCE
           </button>
-          <label for='saved-facts-btn' className='scopes-label'>Saved Horoscopes</label>
+          <label htmlFor='saved-facts-btn' className='scopes-label'>Saved Horoscopes</label>
           <NavLink to='/saved-horoscopes'>
             <button className='saved-button saved-scopes-btn'>
               <img className='moon-icon' src='./moon.png' alt='moon icon'/>
