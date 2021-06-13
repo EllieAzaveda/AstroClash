@@ -23,6 +23,7 @@ class SavedFacts extends Component {
         return (
           <>
             <SavedCard
+              key={fact.date}
               date={fact.date}
               image={fact.url}
               description={fact.explanation}
