@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Header from '../Header/Header';
 import Astronomy from '../Astronomy/Astronomy';
 import Astrology from '../Astrology/Astrology';
@@ -47,8 +47,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("IN APP", this.state.selectedSign)
-
     return (
       <>
         <article className='app'>
