@@ -1,3 +1,39 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+}
+
+.submit-button,
 .sign-dropdown {
-  grid-area: 1 / 2 / 1 / 4;
+  align-self: center;
+  margin: 1em 0;
+}
+
+.saved-button {
+  align-self: baseline;
+  margin: .4em;
+  border-radius: 50%;
+  border: .5px solid #122021;
+  background: -webkit-linear-gradient(top, #E9D07C, #AA893C, #FDE08D, #8f6B29);
+}
+
+.moon-icon {
+  height: 3em;
+  width: 3em;
+}
+
+.scopes-label,
+.facts-label {
+  font-size: 2.5vh;
+  background-color: rgb(212, 209, 185, 0.3);
+}
+
+.facts-label {
+  margin-right: 5vw;
+}
+
+.scopes-label {
+  margin-left: 5vw;
 }
