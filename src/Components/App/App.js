@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 import Astronomy from '../Astronomy/Astronomy';
 import Astrology from '../Astrology/Astrology';
@@ -43,16 +43,16 @@ class App extends Component {
   }
 
   getSavedScopes = () => {
-    let retrievedScopes = localStorage.getItem('savedHoroscopes');
-    if (retrievedScopes.length > 0) {
-      return retrievedScopes;
+    var storage = window.localStorage;
+    if (storage[0].length > 0) {
+      return storage[0];
     }
   }
 
   getSavedFacts = () => {
-    let retrievedFacts = localStorage.getItem('savedFacts');
-    if (retrievedFacts.length > 0) {
-      return retrievedFacts;
+    var storage = window.localStorage;
+    if (storage[1].length > 0) {
+      return storage[1];
     }
   }
 
@@ -72,10 +72,12 @@ class App extends Component {
             <h3 className='error-msg'>{this.state.error}</h3>
           }
           {!this.state.error &&
+          <Switch>
           <div className='app-container'>
             <Route exact path="/" render={() => {
               return <Astronomy
                 saveFact={this.saveFact}
+                isClicked={this.state.isClicked}
               />
             }}
             />
@@ -88,6 +90,21 @@ class App extends Component {
               }}
             />
           </div>
+          <Route path="/saved-astronomy-facts" render={() => {
+            return <SavedFacts
+              selectedSign={this.state.savedFacts}
+              getSavedFacts={this.getSavedFacts}
+            />
+            }}
+          />
+          <Route path="/saved-horoscopes" render={() => {
+            return <SavedScopes
+              selectedSign={this.state.savedHoroscopes}
+              displaySavedScopes={this.getSavedScopes}
+            />
+            }}
+          />
+          </Switch>
           }
         </article>
       </>
