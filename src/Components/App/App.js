@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Header from '../Header/Header';
 import Astronomy from '../Astronomy/Astronomy';
 import Astrology from '../Astrology/Astrology';
@@ -17,7 +17,8 @@ class App extends Component {
         selectedSign: null,
         isClicked: false,
         savedHoroscopes: [],
-        savedFacts: []
+        savedFacts: [],
+        error: ''
       }
   }
 
@@ -67,6 +68,10 @@ class App extends Component {
             return <Form setZodiacSign={this.setZodiacSign} />
           }}
           />
+          {this.state.error &&
+            <h3 className='error-msg'>{this.state.error}</h3>
+          }
+          {!this.state.error &&
           <div className='app-container'>
             <Route exact path="/" render={() => {
               return <Astronomy
@@ -82,8 +87,8 @@ class App extends Component {
               />
               }}
             />
-
           </div>
+          }
         </article>
       </>
     )
