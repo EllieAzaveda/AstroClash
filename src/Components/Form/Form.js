@@ -32,7 +32,7 @@ class Form extends Component {
           <select className='sign-dropdown'
             value={this.state.selectValue}
             onChange={(event) => this.handleChange(event)}>
-            <option value='default-li'>Choose Your Sign</option>
+            <option value='default-li'>CHOOSE YOUR SIGN</option>
             <option value='aries'>Aries (Mar 21 – Apr 19)</option>
             <option value='taurus'>Taurus (Apr 20 – May 20)</option>
             <option value='gemini'>Gemini (May 21 – Jun 21)</option>
