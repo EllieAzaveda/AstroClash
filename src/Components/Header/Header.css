@@ -4,5 +4,23 @@ ul {
 
 .header {
   grid-area: 1 / 2 / 1 / 4;
-  color: #FBEBB2;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1vh;
+  color: #1A1A1A;
+  text-align: center;
+  background-color: rgb(52,91,90, 0.5);
+  border-radius: 6px;
+}
+
+.header-title {
+  font-size: 4vh;
+  margin: .9vh 2vw 1vh 0;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 2vh;
+  margin: 0 1vw 2.5vh 1vw;
 }
