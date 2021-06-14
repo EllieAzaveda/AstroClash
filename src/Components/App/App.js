@@ -8,6 +8,7 @@ import MainPage from '../MainPage/MainPage';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import { signs } from './../../Utils/signs.js'
 import './App.css';
+import '../MainPage/MainPage.css';
 
 class App extends Component {
   constructor() {
