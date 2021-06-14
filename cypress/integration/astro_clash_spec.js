@@ -75,5 +75,10 @@ describe('The user should be able to interact with the Astrology side of the Ast
       .get('.saved-scopes-display > .nothing-saved').find('h1').should('contain', '🔮 You don\'t have any saved horoscopes... Save your first prophecy today! 🔮')
   });
 
+  it('Should display a back to home button on the saved display page', () => {
+    cy.get('form').find('.saved-scopes-btn').click()
+      .url().should('include', '/saved-horoscopes')
+      .get('.app-container').find('[data-cy=home-button]').should('contain', 'Back to Home')
+  });
 
 })
