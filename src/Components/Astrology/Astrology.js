@@ -6,9 +6,9 @@ const Astrology = ({ selectedSign, isClicked, saveScope, error }) => {
   return (
     <>
         {!isClicked &&
-          <div className='main-astrology-card'>
+          <div className='main-astrology-card card'>
             <div  className='card-border'>
-              <img className='main-astrology-image' src='zodiac-wheel.jpeg' alt='zodiac wheel'/>
+              <img className='main-astrology-image main-img' src='zodiac-wheel.jpeg' alt='zodiac wheel'/>
               <h3 className='main-title'>..| Astrology |..</h3>
             </div>
           </div>
