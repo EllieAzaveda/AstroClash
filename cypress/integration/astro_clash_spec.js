@@ -15,7 +15,7 @@ describe('Show main view of AstroClash App', () => {
 
   it('Should display the dropdown and corresponding button, and saved items buttons', () => {
     cy.get('form').find('.sign-dropdown').should('be.visible')
-      .get('form').find('[data-cy=submit-button]').should('be.visible')
+      .get('form').find('[data-cy=submit-button]').should('contain', 'SHOW ME THE DIFFERENCE')
       .get('form').find('[href="/saved-astronomy-facts"] > .saved-button > .moon-icon').should('be.visible')
       .get('form').find('.facts-label').should('contain', 'Saved Astronomy Facts')
       .get('form').find('.scopes-label').should('contain', 'Saved Horoscopes')
@@ -30,4 +30,32 @@ describe('Show main view of AstroClash App', () => {
     cy.get('.main-astrology-card').find('.main-astrology-image').should('be.visible')
       .get('.card-border > .main-title').should('contain', '..| Astrology |..')
   })
+})
+
+describe('The user should be able to interact with the Astrology side of the AstroClash App', () => {
+
+  beforeEach(() => {
+    cy.fixture('mockHoroscopeData.json')
+      .then(mockData => {
+        cy.intercept('POST', 'https://aztro.sameerkumar.website/?sign=leo&day=today', {
+          statusCode: 201,
+          delay: 100,
+          body: mockData
+        })
+      })
+    cy.visit('http://localhost:3000')
+  });
+
+  it('Should display the dropdown and corresponding button, and saved items buttons', () => {
+    cy.get('form').find('.sign-dropdown').select('leo')
+      .get('form').find('[data-cy=submit-button]').click()
+      .get('.astrology-card').find('.astrology-image').should('have.attr', 'src', 'leo.png')
+      .get('.astrology-card > .title').should('contain', '..| leo |..')
+      .get('.astrology-card').find('[data-cy=daily-scope]').should('contain', 'You feel the urge to splurge today.')
+      .get('.astrology-card').find('[data-cy=mood]').should('contain', 'Cautious')
+      .get('.astrology-card').find('[data-cy=lucky-num]').should('contain', '74')
+      .get('.astrology-card').find('[data-cy=color]').should('contain', 'Pink')
+      .get('.astrology-card').find('[data-cy=compatibility]').should('contain', 'Aquarius')
+  });
+
 })
