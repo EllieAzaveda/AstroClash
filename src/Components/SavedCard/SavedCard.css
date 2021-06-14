@@ -1,13 +1,20 @@
 .saved-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  width: 15vw;
+  height: 30vh;
+  width: 90%;
+  margin: 1em;
+  padding: 0;
+  border-radius: 15px;
+  border: .15em solid #345B5A;
+  font-size: 2.5vh;
+  color: #FBEBB2;
+  background-color: #1A1A1A;
+  overflow: scroll;
 }
 
-.saved-image {
-  width: 100%;
-  height: auto;
+.saved-description {
+  margin: 1em 1.5em;
+}
+
+.nothing-saved {
+  width: 90%;
 }

@@ -1,0 +1,76 @@
+.main-title {
+  font-size: 4vh;
+  margin: 6vh 0;
+  border-top: .05em solid #2f5150;
+  border-bottom: .05em solid #2f5150;
+}
+
+.card-border {
+  height: 70vh;
+  width: 85%;
+  border: 4px solid #1A1A1A;
+  border-radius: 15px;
+}
+
+.home-button {
+  height: 4vh;
+  margin: 1em 0;
+  align-self: center;
+  background-color: rgb(52,91,90, 0.8);
+  border-color: 1px solid #122021;
+  border-radius: 5px;
+  color: #F6F6F6;
+  font-size: 1.8vh;
+  font-weight: bold;
+}
+
+.save-feature {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.save-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: .6em;
+  background: -webkit-linear-gradient(top, #E9D07C, #AA893C, #FDE08D, #8f6B29);
+  border: none;
+  border-radius: 50%;
+  height: 2.5em;
+  width: 2.5em;
+}
+
+.save-button-img {
+  height: 2em;
+  width: 2em;
+}
+
+label {
+  font-size: 3vh;
+}
+
+h5 {
+  margin: .2em 1em;
+  text-align: center;
+}
+
+h5,
+.title {
+  background: -webkit-linear-gradient(top, #E9D07C, #AA893C, #FDE08D, #8f6B29);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title {
+  margin: .5em .2em;
+}
+
+/*~~~~~~ Responsiveness ~~~~~~ */
+
+@media screen and (max-width: 768px) {
+  label {
+    font-size: 2.5vh;
+  }
+}

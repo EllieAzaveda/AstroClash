@@ -10,8 +10,14 @@ class Astronomy extends Component {
       this.state = {
         dailyFact: {},
         isClicked: props.isClicked,
-        error: ''
+        error: '',
+        savedClicked: false
       }
+  }
+
+  handleFactClick = (factData) => {
+    this.setState({ savedClicked: true });
+    this.props.saveFact(factData);
   }
 
   componentDidMount () {
@@ -33,9 +39,9 @@ class Astronomy extends Component {
           <h2>{this.state.error}</h2>
       }
       {!this.props.isClicked && !this.state.error &&
-        <div className='main-astronomy-card'>
+        <div className='main-astronomy-card card'>
           <div  className='card-border'>
-            <img className='main-astronomy-image' src='history-astro.png' alt='history of astronomy'/>
+            <img className='main-astronomy-image main-img' src='history-astro.png' alt='history of astronomy'/>
             <h3 className='main-title'>..| Astronomy |..</h3>
           </div>
         </div>
@@ -44,6 +50,8 @@ class Astronomy extends Component {
         <AstronomyFact
           dailyFact={this.state.dailyFact}
           saveFact={this.props.saveFact}
+          savedClicked={this.state.savedClicked}
+          handleFactClick={this.handleFactClick}
         />
       }
       </>

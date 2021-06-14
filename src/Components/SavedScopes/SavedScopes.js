@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import SavedCard from '../SavedCard/SavedCard';
+import { signs } from './../../Utils/signs.js'
 import './SavedScopes.css';
 
 class SavedScopes extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        savedHoroscopes: props.savedHoroscopes
+        savedHoroscopes: props.savedHoroscopes,
+        allSigns: signs,
       }
   }
 
@@ -15,7 +17,7 @@ class SavedScopes extends Component {
     if (!this.state.savedHoroscopes.length) {
       return (
         <div className='nothing-saved'>
-          <h1>🔮 You don't have any saved horoscopes... Save your first prophecy today! 🔮</h1>
+          <h1 className='nothing-msg'>🔮 You don't have any saved horoscopes... Save your first prophecy today! 🔮</h1>
         </div>
       )
     } else {
@@ -25,7 +27,6 @@ class SavedScopes extends Component {
           <SavedCard
             key={scope.description}
             date={scope.date}
-            image={scope.img_path}
             description={scope.description}
           />
           </>
@@ -46,9 +47,11 @@ class SavedScopes extends Component {
         {!this.state.error &&
           <>
             <NavLink to='/'><button data-cy='home-button' className='home-button'>Back to Home Page</button></NavLink>
+            <>
             <div className='saved-scopes-display'>
               {this.displayScopesCards()}
             </div>
+            </>
           </>
         }
       </>

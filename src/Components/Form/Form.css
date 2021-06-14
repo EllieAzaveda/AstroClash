@@ -7,12 +7,17 @@
 
 .submit-button,
 .sign-dropdown {
-  height: 3vh;
+  height: 4vh;
   align-self: center;
   margin: 1em 0;
-  background-color: rgb(52,91,90, 0.4);
+  background-color: rgb(52,91,90, 0.8);
   border-color: #122021;
+  color: #F6F6F6;
   font-weight: bold;
+}
+
+.sign-dropdown {
+  font-size: 2vh;
 }
 
 .submit-button {
@@ -38,7 +43,7 @@
 .facts-label {
   font-size: 2.2vh;
   font-weight: bold;
-  background-color: rgb(212, 209, 185, 0.3);
+  background-color: rgb(212, 209, 185, 0.5);
 }
 
 .facts-label {
@@ -47,4 +52,51 @@
 
 .scopes-label {
   margin-left: 3vw;
+}
+
+
+/*~~~~~~ Responsiveness ~~~~~~ */
+
+@media screen and (max-width: 768px) {
+
+  .submit-button,
+  .sign-dropdown {
+    height: 8vh;
+    align-self: center;
+    margin: 1em;
+  }
+
+  .sign-dropdown {
+    font-size: 2vh;
+  }
+
+   .saved-label {
+    display: none;
+    margin: 3em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .submit-button,
+  .sign-dropdown {
+    margin: .2em;
+    font-size: 1.8vh;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .sign-dropdown {
+    width: 12em;
+    font-size: 2.2vh;
+  }
+
+  .saved-button {
+    width: 3em;
+    height: 3em;
+  }
+
+  .moon-icon {
+    width: 2em;
+    height: 2em;
+  }
 }
