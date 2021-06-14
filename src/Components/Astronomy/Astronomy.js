@@ -10,7 +10,7 @@ class Astronomy extends Component {
         this.state = {
           dailyFact: {},
           isClicked: props.isClicked,
-          error: ''
+          error: props.error
         }
     }
 
