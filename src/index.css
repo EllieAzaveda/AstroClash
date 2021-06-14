@@ -2,8 +2,8 @@
 
 body {
   background-image: url('./map.jpeg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: repeat;
+  background-size: 100%;
   margin: 0;
   font-family: -apple-system, 'Mate SC', serif;
   -webkit-font-smoothing: antialiased;
