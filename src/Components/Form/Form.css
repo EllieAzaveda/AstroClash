@@ -10,8 +10,9 @@
   height: 3vh;
   align-self: center;
   margin: 1em 0;
-  background-color: rgb(52,91,90, 0.4);
+  background-color: rgb(52,91,90, 0.8);
   border-color: #122021;
+  color: #F6F6F6;
   font-weight: bold;
 }
 
@@ -38,7 +39,7 @@
 .facts-label {
   font-size: 2.2vh;
   font-weight: bold;
-  background-color: rgb(212, 209, 185, 0.3);
+  background-color: rgb(212, 209, 185, 0.5);
 }
 
 .facts-label {
