@@ -118,4 +118,10 @@ describe('The user should be able to interact with the Astronomy side of the Ast
       .get('.saved-facts-display > .saved-card').find(':nth-child(3)').should('contain', 'Description: Is that a cloud or an alien spaceship?')
   });
 
+  it('Should display a message when no facts are saved', () => {
+    cy.get('form').find('.saved-facts-btn').click()
+      .url().should('include', '/saved-astronomy-facts')
+      .get('.saved-facts-display > .nothing-saved').find('h1').should('contain', '🪐 You don\'t have any saved astronomy facts... Save your first fact today! 🌙')
+  });
+
 });
