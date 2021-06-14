@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AstronomyFact from '../AstronomyFact/AstronomyFact';
 import { fetchDailyFact } from '../../Utils/APICalls';
+import { cleanAstronomyData } from '../../Utils/cleaningMethods';
 import './Astronomy.css';
 
 class Astronomy extends Component {
@@ -19,7 +20,7 @@ class Astronomy extends Component {
           if(typeof dailyFact === 'string') {
             this.setState({ error: dailyFact })
           } else {
-            this.setState({ dailyFact: dailyFact })
+            this.setState({ dailyFact: cleanAstronomyData(dailyFact) })
           }
         })
         .catch(err => err.message)
