@@ -8,3 +8,14 @@ export const cleanHoroscopeData = (horoscopeData) => {
     return obj;
   }, {})
 }
+
+export const cleanAstronomyData = (astronomyData) => {
+  let objKeys = Object.entries(astronomyData);
+
+  return objKeys.reduce((obj, entry) => {
+    if (entry[0] !== 'service_version' && entry[0] !== 'hdurl') {
+      obj[entry[0]] = entry[1]
+    }
+    return obj;
+  }, {})
+}
