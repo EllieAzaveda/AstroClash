@@ -10,11 +10,17 @@ class HoroscopeCard extends Component {
           signData: props.selectedSign,
           signName: props.selectedSign.name,
           horoscopeData: {},
-          error: ''
+          error: '',
+          savedClicked: false
         }
   }
 
-  componentDidMount () {
+  handleScopeClick = (horoscopeData) => {
+    this.setState({ savedClicked: true });
+    this.props.saveScope(horoscopeData);
+  }
+
+  componentDidMount() {
     fetchSingleHoroscope(this.state.signName)
       .then(singleHoroscope => {
         if(typeof singleHoroscope === 'string') {
@@ -42,8 +48,8 @@ class HoroscopeCard extends Component {
             <h5 data-cy='color'>Color: {this.state.horoscopeData.color} </h5>
             <h5 data-cy='compatibility'>Love Compatibility: {this.state.horoscopeData.compatibility} </h5>
             <h5 className='save-feature'>
-              <button data-cy='save-button' className='save-button'>
-                <img className='save-button-img' src='save-img.png' alt='save button' onClick={(event) => this.props.saveScope(this.state.horoscopeData)}/>
+              <button data-cy='save-button' className={!this.state.savedClicked ? 'save-button' : 'already-saved'}>
+                <img className='save-button-img' src='save-img.png' alt='save button' onClick={(event) => this.handleScopeClick(this.state.horoscopeData)}/>
               </button>
               <label htmlFor='save-button'>Save this Horoscope</label>
             </h5>
