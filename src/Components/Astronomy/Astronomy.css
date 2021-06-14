@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  grid-area: 2 / 3 / 3 / 4;
   margin: 1em;
   padding: 0;
   border-radius: 15px;
@@ -15,7 +14,7 @@
 }
 
 .main-astronomy-image {
-  width: 100%;
+  width: 22vw;
   margin-top: 12vh;
   border-radius: 50%;
 }
