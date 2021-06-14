@@ -35,7 +35,6 @@ class App extends Component {
   saveScope = (horoscopeData) => {
     if (!this.state.savedHoroscopes.find(scope => scope.current_date === horoscopeData.current_date)) {
       this.setState({ savedHoroscopes: [...this.state.savedHoroscopes, horoscopeData]})
-      localStorage.setItem('savedHoroscopes', JSON.stringify([...this.state.savedHoroscopes, horoscopeData]));
       this.setState({ savedClicked: true });
     }
   }
@@ -43,7 +42,6 @@ class App extends Component {
   saveFact = (dailyFact) => {
     if (!this.state.savedFacts.find(fact => fact.date === dailyFact.date)) {
       this.setState({ savedFacts: [...this.state.savedFacts, dailyFact]})
-      localStorage.setItem('savedFacts', JSON.stringify([...this.state.savedFacts, dailyFact]));
     }
   }
 
@@ -51,10 +49,7 @@ class App extends Component {
     return (
       <>
         <article className='app'>
-          <Header
-            savedHoroscopes={this.displaySavedScopes}
-            savedFacts={this.displaySavedFacts}
-          />
+          <Header />
           <Route exact path="/" render={() => {
             return <Form
               setZodiacSign={this.setZodiacSign}
@@ -65,33 +60,33 @@ class App extends Component {
           {!this.state.error &&
           <div className='app-container'>
             <Switch>
-            <Route exact path="/" render={() => {
-              return <MainPage
-                saveFact={this.saveFact}
-                selectedSign={this.state.selectedSign}
-                isClicked={this.state.isClicked}
-                saveScope={this.saveScope}
-                error={this.state.error}
-                savedClicked={this.state.savedClicked}
+              <Route exact path="/" render={() => {
+                return <MainPage
+                  saveFact={this.saveFact}
+                  selectedSign={this.state.selectedSign}
+                  isClicked={this.state.isClicked}
+                  saveScope={this.saveScope}
+                  error={this.state.error}
+                  savedClicked={this.state.savedClicked}
+                />
+                }}
               />
-              }}
-            />
-            <Route exact path="/saved-astronomy-facts" render={() => {
-              return <SavedFacts
-                savedFacts={this.state.savedFacts}
+              <Route exact path="/saved-astronomy-facts" render={() => {
+                return <SavedFacts
+                  savedFacts={this.state.savedFacts}
+                />
+                }}
               />
-              }}
-            />
-            <Route exact path="/saved-horoscopes" render={() => {
-              return <SavedScopes
-                savedHoroscopes={this.state.savedHoroscopes}
+              <Route exact path="/saved-horoscopes" render={() => {
+                return <SavedScopes
+                  savedHoroscopes={this.state.savedHoroscopes}
+                />
+                }}
               />
-              }}
-            />
-            <Route path="*" render={() => {
-              return <NotFoundPage />
-              }}
-            />
+              <Route path="*" render={() => {
+                return <NotFoundPage />
+                }}
+              />
             </Switch>
           </div>
           }
