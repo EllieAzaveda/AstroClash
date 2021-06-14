@@ -64,7 +64,9 @@ describe('The user should be able to interact with the Astrology side of the Ast
       .get('.astrology-card > .save-feature').find('[data-cy=save-button]').click()
       .get('form').find('.saved-scopes-btn').click()
       .url().should('include', '/saved-horoscopes')
-      .get('.saved-scopes-display')
+      .get('.saved-scopes-display > .saved-card').find(':nth-child(1)').should('contain', 'Date:')
+      .get('.saved-scopes-display > .saved-card').find(':nth-child(2)').should('have.attr', 'src')
+      .get('.saved-scopes-display > .saved-card').find(':nth-child(3)').should('contain', 'Description:')
   });
 
   // Should display a message when no horoscopes are saved
