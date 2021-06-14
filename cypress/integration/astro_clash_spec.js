@@ -46,7 +46,7 @@ describe('The user should be able to interact with the Astrology side of the Ast
     cy.visit('http://localhost:3000')
   });
 
-  it('Should display the dropdown and corresponding button, and saved items buttons', () => {
+  it('Should display a horoscope and zodiac info when leo is chosen', () => {
     cy.get('form').find('.sign-dropdown').select('leo')
       .get('form').find('[data-cy=submit-button]').click()
       .get('.astrology-card').find('.astrology-image').should('have.attr', 'src', 'leo.png')
@@ -57,5 +57,16 @@ describe('The user should be able to interact with the Astrology side of the Ast
       .get('.astrology-card').find('[data-cy=color]').should('contain', 'Pink')
       .get('.astrology-card').find('[data-cy=compatibility]').should('contain', 'Aquarius')
   });
+
+  it('Should be able to save a horoscope and zodiac info when leo is chosen and saved', () => {
+    cy.get('form').find('.sign-dropdown').select('leo')
+      .get('form').find('[data-cy=submit-button]').click()
+      .get('.astrology-card > .save-feature').find('[data-cy=save-button]').click()
+      .get('form').find('.saved-scopes-btn').click()
+      .url().should('include', '/saved-horoscopes')
+      .get('.saved-scopes-display')
+  });
+
+  // Should display a message when no horoscopes are saved
 
 })
