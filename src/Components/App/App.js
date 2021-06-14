@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
-import Astronomy from '../Astronomy/Astronomy';
-import Astrology from '../Astrology/Astrology';
 import SavedFacts from '../SavedFacts/SavedFacts';
 import SavedScopes from '../SavedScopes/SavedScopes';
 import Form from '../Form/Form';
