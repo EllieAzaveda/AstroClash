@@ -124,4 +124,10 @@ describe('The user should be able to interact with the Astronomy side of the Ast
       .get('.saved-facts-display > .nothing-saved').find('h1').should('contain', '🪐 You don\'t have any saved astronomy facts... Save your first fact today! 🌙')
   });
 
+  it('Should display a back to home button on the saved display page', () => {
+    cy.get('form').find('.saved-facts-btn').click()
+      .url().should('include', '/saved-astronomy-facts')
+      .get('.app-container').find('[data-cy=home-button]').should('contain', 'Back to Home')
+  });
+
 });
