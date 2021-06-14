@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 import Astronomy from '../Astronomy/Astronomy';
 import Astrology from '../Astrology/Astrology';
 import SavedFacts from '../SavedFacts/SavedFacts';
 import SavedScopes from '../SavedScopes/SavedScopes';
 import Form from '../Form/Form';
+import MainPage from '../MainPage/MainPage';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import { signs } from './../../Utils/signs.js'
 import './App.css';
@@ -62,20 +63,13 @@ class App extends Component {
           />
           {!this.state.error &&
           <div className='app-container'>
+            <Switch>
             <Route exact path="/" render={() => {
-              return <Astronomy
+              return <MainPage
                 saveFact={this.saveFact}
-                isClicked={this.state.isClicked}
-                error={this.state.error}
-              />
-            }}
-            />
-            <Route exact path="/" render={() => {
-              return <Astrology
                 selectedSign={this.state.selectedSign}
                 isClicked={this.state.isClicked}
                 saveScope={this.saveScope}
-                refreshPage={this.refreshPage}
                 error={this.state.error}
               />
               }}
@@ -92,10 +86,11 @@ class App extends Component {
               />
               }}
             />
-            <Route exact path="/404" render={() => {
+            <Route path="*" render={() => {
               return <NotFoundPage />
               }}
             />
+            </Switch>
           </div>
           }
         </article>
