@@ -61,7 +61,7 @@
     margin: 1em;
   }
 
-  label {
+   .saved-label {
     display: none;
     margin: 3em;
   }
