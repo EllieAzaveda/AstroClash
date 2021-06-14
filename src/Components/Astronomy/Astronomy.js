@@ -33,9 +33,9 @@ class Astronomy extends Component {
           <h2>{this.state.error}</h2>
       }
       {!this.props.isClicked && !this.state.error &&
-        <div className='main-astronomy-card'>
+        <div className='main-astronomy-card card'>
           <div  className='card-border'>
-            <img className='main-astronomy-image' src='history-astro.png' alt='history of astronomy'/>
+            <img className='main-astronomy-image main-img' src='history-astro.png' alt='history of astronomy'/>
             <h3 className='main-title'>..| Astronomy |..</h3>
           </div>
         </div>
