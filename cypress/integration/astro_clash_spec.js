@@ -156,3 +156,16 @@ describe('500 error handling for astronomy api call', () => {
       .get('.app-container').find('h2').should('contain', 'Uhoh! Something is wrong with our system. Please try back later.')
   });
 });
+
+describe('500 error handling for astrology api call', () => {
+  it('Displays a 500 error message when the server is down', () => {
+    cy.intercept('POST', 'https://aztro.sameerkumar.website/?sign=leo&day=today', {
+      statusCode: 500,
+      delay: 200
+    })
+    cy.visit('http://localhost:3000')
+      .get('form').find('.sign-dropdown').select('leo')
+      .get('form').find('[data-cy=submit-button]').click()
+      .get('.app-container').find('h2').should('contain', 'Uhoh! Something is wrong with our system. Please try back later.')
+  });
+});
