@@ -10,8 +10,14 @@ class Astronomy extends Component {
       this.state = {
         dailyFact: {},
         isClicked: props.isClicked,
-        error: ''
+        error: '',
+        savedClicked: false
       }
+  }
+
+  handleFactClick = (factData) => {
+    this.setState({ savedClicked: true });
+    this.props.saveFact(factData);
   }
 
   componentDidMount () {
@@ -44,6 +50,8 @@ class Astronomy extends Component {
         <AstronomyFact
           dailyFact={this.state.dailyFact}
           saveFact={this.props.saveFact}
+          savedClicked={this.state.savedClicked}
+          handleFactClick={this.handleFactClick}
         />
       }
       </>
