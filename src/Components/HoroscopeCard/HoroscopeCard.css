@@ -21,3 +21,8 @@
   margin-top: 0em;
   border-radius: 15px 15px 0% 0%;
 }
+
+.already-saved {
+  background-color: #345B5A;
+  border-radius: 50%;
+}
