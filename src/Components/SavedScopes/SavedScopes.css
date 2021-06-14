@@ -1,9 +1,9 @@
 .saved-scopes-display {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
 }
 
 .nothing-saved {
