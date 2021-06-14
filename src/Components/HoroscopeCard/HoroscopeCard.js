@@ -10,7 +10,7 @@ class HoroscopeCard extends Component {
           signData: props.selectedSign,
           signName: props.selectedSign.name,
           horoscopeData: {},
-          error: ''
+          error: props.error
         }
   }
 
