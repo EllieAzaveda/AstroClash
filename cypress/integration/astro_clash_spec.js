@@ -26,4 +26,8 @@ describe('Show main view of AstroClash App', () => {
       .get('.card-border > .main-title').should('contain', '..| Astronomy |..')
   })
 
+  it('Should display a default astronomy card on main page', () => {
+    cy.get('.main-astrology-card').find('.main-astrology-image').should('be.visible')
+      .get('.card-border > .main-title').should('contain', '..| Astrology |..')
+  })
 })
