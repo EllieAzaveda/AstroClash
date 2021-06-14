@@ -10,7 +10,7 @@ class Astronomy extends Component {
         this.state = {
           dailyFact: {},
           isClicked: props.isClicked,
-          error: props.error
+          error: ''
         }
     }
 
@@ -29,7 +29,10 @@ class Astronomy extends Component {
     render() {
       return (
         <>
-        {!this.props.isClicked &&
+        {this.state.error &&
+            <h2>{this.state.error}</h2>
+        }
+        {!this.props.isClicked && !this.state.error &&
           <div className='main-astronomy-card'>
             <div  className='card-border'>
               <img className='main-astronomy-image' src='history-astro.png' alt='history of astronomy'/>
@@ -37,7 +40,7 @@ class Astronomy extends Component {
             </div>
           </div>
         }
-        {this.props.isClicked &&
+        {this.props.isClicked && !this.state.error &&
           <AstronomyFact
             dailyFact={this.state.dailyFact}
             saveFact={this.props.saveFact}
