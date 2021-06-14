@@ -24,13 +24,14 @@ describe('Show main view of AstroClash App', () => {
   it('Should display a default astronomy card on main page', () => {
     cy.get('.main-astronomy-card').find('.main-astronomy-image').should('be.visible')
       .get('.card-border > .main-title').should('contain', '..| Astronomy |..')
-  })
+  });
 
   it('Should display a default astronomy card on main page', () => {
     cy.get('.main-astrology-card').find('.main-astrology-image').should('be.visible')
       .get('.card-border > .main-title').should('contain', '..| Astrology |..')
-  })
-})
+  });
+
+});
 
 describe('The user should be able to interact with the Astrology side of the AstroClash App', () => {
 
@@ -81,4 +82,29 @@ describe('The user should be able to interact with the Astrology side of the Ast
       .get('.app-container').find('[data-cy=home-button]').should('contain', 'Back to Home')
   });
 
-})
+});
+
+describe('The user should be able to interact with the Astrology side of the AstroClash App', () => {
+
+  beforeEach(() => {
+    cy.fixture('mockNasaData.json')
+      .then(mockData => {
+        cy.intercept('GET', 'https://api.nasa.gov/planetary/apod?api_key=xCENGAkMUeSm4npGMPsHqwBltGKg0M0FYSLHdiPw', {
+          statusCode: 201,
+          delay: 100,
+          body: mockData
+        })
+      })
+    cy.visit('http://localhost:3000')
+  });
+
+  it('Should display a NASA astronomy info when show me the difference button is clicked', () => {
+    cy.get('form').find('.sign-dropdown').select('leo')
+      .get('form').find('[data-cy=submit-button]').click()
+      .get('.astronomy-card').find('.astronomy-image').should('have.attr', 'src', 'http://www.weathernationtv.com/app/uploads/5-18_2126_rhp_wright-wy_storm-structure_TW_@wxstorm.jpg')
+      .get('.astronomy-card').find('[data-cy=title]').should('contain', 'A Supercell Thunderstorm Over Texas')
+      .get('.astronomy-card').find('[data-cy=explanation]').should('contain', 'Is that a cloud or an alien spaceship?')
+      .get('.astronomy-card').find('[data-cy=copyright]').should('contain', 'Mike Olbinski Music: Incompetech')
+  });
+
+});
