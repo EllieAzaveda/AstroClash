@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import SavedCard from '../SavedCard/SavedCard';
 import { signs } from './../../Utils/signs.js'
 import './SavedScopes.css';
 
@@ -24,11 +23,9 @@ class SavedScopes extends Component {
       return this.state.savedHoroscopes.map(scope => {
         return (
           <>
-          <SavedCard
-            key={scope.description}
-            date={scope.date}
-            description={scope.description}
-          />
+            <div className='astrology-saved-card'>
+              <h4 className='astrology-saved-description'>{scope.description}</h4>
+            </div>
           </>
         )
       })
