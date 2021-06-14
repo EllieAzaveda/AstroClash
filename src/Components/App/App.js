@@ -17,6 +17,7 @@ class App extends Component {
         allSigns: signs,
         selectedSign: null,
         isClicked: false,
+        savedClicked: false,
         savedHoroscopes: [],
         savedFacts: [],
         error: ''
@@ -35,6 +36,7 @@ class App extends Component {
     if (!this.state.savedHoroscopes.find(scope => scope.current_date === horoscopeData.current_date)) {
       this.setState({ savedHoroscopes: [...this.state.savedHoroscopes, horoscopeData]})
       localStorage.setItem('savedHoroscopes', JSON.stringify([...this.state.savedHoroscopes, horoscopeData]));
+      this.setState({ savedClicked: true });
     }
   }
 
@@ -70,6 +72,7 @@ class App extends Component {
                 isClicked={this.state.isClicked}
                 saveScope={this.saveScope}
                 error={this.state.error}
+                savedClicked={this.state.savedClicked}
               />
               }}
             />
