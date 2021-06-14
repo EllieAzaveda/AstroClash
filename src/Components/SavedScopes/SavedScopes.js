@@ -23,6 +23,7 @@ class SavedScopes extends Component {
         return (
           <>
           <SavedCard
+            key={scope.description}
             date={scope.date}
             image={scope.img_path}
             description={scope.description}

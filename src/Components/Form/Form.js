@@ -26,7 +26,7 @@ class Form extends Component {
       <>
         <form className='form'>
           <NavLink to='/saved-astronomy-facts'>
-            <button className='saved-button saved-facts-btn'>
+            <button data-cy='saved-button' className='saved-button saved-facts-btn'>
               <img className='moon-icon' src='./moon.png' alt='moon icon'/>
             </button>
           </NavLink>
@@ -57,7 +57,7 @@ class Form extends Component {
           </button>
           <label htmlFor='saved-facts-btn' className='scopes-label'>Saved Horoscopes</label>
           <NavLink to='/saved-horoscopes'>
-            <button className='saved-button saved-scopes-btn'>
+            <button data-cy='saved-button' className='saved-button saved-scopes-btn'>
               <img className='moon-icon' src='./moon.png' alt='moon icon'/>
             </button>
           </NavLink>

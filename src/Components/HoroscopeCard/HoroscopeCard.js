@@ -30,13 +30,13 @@ class HoroscopeCard extends Component {
       <div className='astrology-card'>
         <img className='astrology-image' src={`${this.state.signData.img_path}`} alt='Leo'/>
         <h3 className='title'>..| {this.state.signName} |..</h3>
-        <h5>Daily Horoscope: {this.state.horoscopeData.description} </h5>
-        <h5>Mood: {this.state.horoscopeData.mood} </h5>
-        <h5>Lucky Number: {this.state.horoscopeData.lucky_number} </h5>
-        <h5>Color: {this.state.horoscopeData.color} </h5>
-        <h5>Love Compatibility: {this.state.horoscopeData.compatibility} </h5>
+        <h5 data-cy='daily-scope'>Daily Horoscope: {this.state.horoscopeData.description} </h5>
+        <h5 data-cy='mood'>Mood: {this.state.horoscopeData.mood} </h5>
+        <h5 data-cy='lucky-num'>Lucky Number: {this.state.horoscopeData.lucky_number} </h5>
+        <h5 data-cy='color'>Color: {this.state.horoscopeData.color} </h5>
+        <h5 data-cy='compatibility'>Love Compatibility: {this.state.horoscopeData.compatibility} </h5>
         <h5 className='save-feature'>
-          <button className='save-button'>
+          <button data-cy='save-button' className='save-button'>
             <img className='save-button-img' src='save-img.png' alt='save button' onClick={(event) => this.props.saveScope(this.state.horoscopeData)}/>
           </button>
           <label htmlFor='save-button'>Save this Horoscope</label>
