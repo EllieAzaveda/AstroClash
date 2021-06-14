@@ -9,7 +9,7 @@ describe('Show main view of AstroClash App', () => {
   });
 
   it('Should display the title and subtitle of the page upon loading', () => {
-    cy.contains('nav>h1', 'AstroClash')
+    cy.contains('nav > h1', 'AstroClash')
       .get('nav .subtitle').should('contain', 'WHERE YOU DON\'T NEED TO KNOW THE DIFFERENCE BETWEEN ASTRONOMY & ASTROLOGY')
   });
 
@@ -20,5 +20,10 @@ describe('Show main view of AstroClash App', () => {
       .get('form').find('.facts-label').should('contain', 'Saved Astronomy Facts')
       .get('form').find('.scopes-label').should('contain', 'Saved Horoscopes')
   });
+
+  it('Should display a default astronomy card on main page', () => {
+    cy.get('.main-astronomy-card').find('.main-astronomy-image').should('be.visible')
+      .get('.card-border > .main-title').should('contain', '..| Astronomy |..')
+  })
 
 })
