@@ -15,7 +15,7 @@ class SavedFacts extends Component {
     if (!this.state.savedFacts.length) {
       return (
         <div className='nothing-saved'>
-          <h1>🪐 You don't have any saved astronomy facts... Save your first fact today! 🌙</h1>
+          <h1 className='nothing-msg'>🪐 You don't have any saved astronomy facts... Save your first fact today! 🌙</h1>
         </div>
       )
     } else {
