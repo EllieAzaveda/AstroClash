@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchSingleHoroscope } from '../../Utils/APICalls';
+import { cleanHoroscopeData } from '../../Utils/cleaningMethods';
 import './HoroscopeCard.css';
 
 class HoroscopeCard extends Component {
@@ -19,10 +20,10 @@ class HoroscopeCard extends Component {
         if(typeof singleHoroscope === 'string') {
           this.setState({ error: singleHoroscope })
         } else {
-          this.setState({ horoscopeData: singleHoroscope })
+          this.setState({ horoscopeData: cleanHoroscopeData(singleHoroscope) })
         }
     })
-      .catch(err => err.message)
+    .catch(err => err.message)
   }
 
   render() {
