@@ -8,7 +8,6 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  overflow: scroll;
 }
 
 .app-container {
@@ -17,4 +16,51 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+
+/*~~~~~~ Responsive ~~~~~~ */
+
+@media screen and (max-width: 763px) {
+
+  .card {
+    width: 40vw;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    width: 50vw;
+  }
+
+}
+
+@media screen and (max-width: 425px) {
+
+
+  .card {
+    width: 80vw;
+  }
+
+  .main-img {
+    width: 20vw;
+  }
+
+}
+
+@media screen and (max-width: 320px) {
+
+  .card {
+    width: 110vw;
+  }
+
 }
