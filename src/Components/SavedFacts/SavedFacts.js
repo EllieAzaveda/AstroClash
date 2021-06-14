@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import SavedCard from '../SavedCard/SavedCard';
 import './SavedFacts.css';
 
 class SavedFacts extends Component {
@@ -22,12 +21,13 @@ class SavedFacts extends Component {
       return this.state.savedFacts.map(fact => {
         return (
           <>
-            <SavedCard
-              key={fact.date}
-              date={fact.date}
-              image={fact.url}
-              description={fact.explanation}
-            />
+            <div className='astronomy-saved-card'>
+              <img data-cy='astronomy-image' className='astronomy-saved-image' src={fact.url} alt={`${fact.title}`}/>
+              <div className='saved-explanation'>
+                <h4 className='astronomy-saved-title'>..| {fact.title} |..</h4>
+                <h4 className='astronomy-saved-explanation'>{fact.explanation}</h4>
+              </div>
+            </div>
           </>
         )
       })
@@ -45,10 +45,10 @@ class SavedFacts extends Component {
         }
         {!this.state.error  &&
           <>
-`          <NavLink to='/'><button data-cy='home-button' className='home-button'>Back to Home Page</button></NavLink>
-          <div className='saved-facts-display'>
-            {this.displayFactsCards()}
-          </div>`
+            <NavLink to='/'><button data-cy='home-button' className='home-button'>Back to Home Page</button></NavLink>
+            <div className='saved-facts-display'>
+              {this.displayFactsCards()}
+            </div>
           </>
         }
       </>
