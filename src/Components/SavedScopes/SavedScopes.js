@@ -35,7 +35,7 @@ class SavedScopes extends Component {
   render() {
     return (
       <>
-        {this.state.error  &&
+        {this.state.error &&
           <>
             <NavLink to='/'><button data-cy='home-button' className='home-button'>Back to Home Page</button></NavLink>
             <h3>{this.state.savedHoroscopes}</h3>
