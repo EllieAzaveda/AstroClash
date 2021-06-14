@@ -49,3 +49,34 @@
 .scopes-label {
   margin-left: 3vw;
 }
+
+
+/*~~~~~~ Responsiveness ~~~~~~ */
+
+@media screen and (max-width: 763px) {
+  .submit-button,
+  .sign-dropdown {
+    height: 8vh;
+    align-self: center;
+    margin: 1em;
+  }
+
+
+  label {
+    display: none;
+    margin: 3em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .submit-button,
+  .sign-dropdown {
+    margin: .2em;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .sign-dropdown {
+    width: 12em;
+  }
+}
