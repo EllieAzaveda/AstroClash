@@ -33,7 +33,7 @@ class HoroscopeCard extends Component {
           <h2>{this.state.error}</h2>
       }
       {!this.state.error &&
-          <div className='astrology-card'>
+          <div className='astrology-card card'>
             <img className='astrology-image' src={`${this.state.signData.img_path}`} alt='Leo'/>
             <h3 className='title'>..| {this.state.signName} |..</h3>
             <h5 data-cy='daily-scope'>Daily Horoscope: {this.state.horoscopeData.description} </h5>
