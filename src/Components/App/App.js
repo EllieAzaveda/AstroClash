@@ -60,12 +60,6 @@ class App extends Component {
             />
           }}
           />
-          {this.state.error &&
-            <Route path="/404" render={() => {
-              return <NotFoundPage />
-              }}
-            />
-          }
           {!this.state.error &&
           <div className='app-container'>
             <Route exact path="/" render={() => {
@@ -98,7 +92,7 @@ class App extends Component {
               />
               }}
             />
-            <Route path="/404" render={() => {
+            <Route exact path="/404" render={() => {
               return <NotFoundPage />
               }}
             />
