@@ -84,7 +84,7 @@ describe('The user should be able to interact with the Astrology side of the Ast
 
 });
 
-describe('The user should be able to interact with the Astrology side of the AstroClash App', () => {
+describe('The user should be able to interact with the Astronomy side of the AstroClash App', () => {
 
   beforeEach(() => {
     cy.fixture('mockNasaData.json')
@@ -105,6 +105,17 @@ describe('The user should be able to interact with the Astrology side of the Ast
       .get('.astronomy-card').find('[data-cy=title]').should('contain', 'A Supercell Thunderstorm Over Texas')
       .get('.astronomy-card').find('[data-cy=explanation]').should('contain', 'Is that a cloud or an alien spaceship?')
       .get('.astronomy-card').find('[data-cy=copyright]').should('contain', 'Mike Olbinski Music: Incompetech')
+  });
+
+  it('Should be able to save astronomy info when save button is clicked', () => {
+    cy.get('form').find('.sign-dropdown').select('leo')
+      .get('form').find('[data-cy=submit-button]').click()
+      .get('.astronomy-card > .save-feature').find('.save-button').click()
+      .get('form').find('.saved-facts-btn').click()
+      .url().should('include', '/saved-astronomy-facts')
+      .get('.saved-facts-display > .saved-card').find(':nth-child(1)').should('contain', 'Date: 2021-06-13')
+      .get('.saved-facts-display > .saved-card').find(':nth-child(2)').should('have.attr', 'src', 'http://www.weathernationtv.com/app/uploads/5-18_2126_rhp_wright-wy_storm-structure_TW_@wxstorm.jpg')
+      .get('.saved-facts-display > .saved-card').find(':nth-child(3)').should('contain', 'Description: Is that a cloud or an alien spaceship?')
   });
 
 });
