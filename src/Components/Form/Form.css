@@ -53,14 +53,13 @@
 
 /*~~~~~~ Responsiveness ~~~~~~ */
 
-@media screen and (max-width: 763px) {
+@media screen and (max-width: 768px) {
   .submit-button,
   .sign-dropdown {
     height: 8vh;
     align-self: center;
     margin: 1em;
   }
-
 
   label {
     display: none;
