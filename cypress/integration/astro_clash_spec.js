@@ -30,7 +30,6 @@ describe('Show main view of AstroClash App', () => {
     cy.get('.main-astrology-card').find('.main-astrology-image').should('be.visible')
       .get('.card-border > .main-title').should('contain', '..| Astrology |..')
   });
-
 });
 
 describe('The user should be able to interact with the Astrology side of the AstroClash App', () => {
@@ -81,7 +80,19 @@ describe('The user should be able to interact with the Astrology side of the Ast
       .url().should('include', '/saved-horoscopes')
       .get('.app-container').find('[data-cy=home-button]').should('contain', 'Back to Home')
   });
+});
 
+describe('500 error handling for astrology api call', () => {
+  it('Displays a 500 error message when the server is down', () => {
+    cy.intercept('POST', 'https://aztro.sameerkumar.website/?sign=leo&day=today', {
+      statusCode: 500,
+      delay: 200
+    })
+    cy.visit('http://localhost:3000')
+      .get('form').find('.sign-dropdown').select('leo')
+      .get('form').find('[data-cy=submit-button]').click()
+      .get('.app-container').find('h2').should('contain', 'Uhoh! Something is wrong with our system. Please try back later.')
+  });
 });
 
 describe('The user should be able to interact with the Astronomy side of the AstroClash App', () => {
@@ -130,4 +141,42 @@ describe('The user should be able to interact with the Astronomy side of the Ast
       .get('.app-container').find('[data-cy=home-button]').should('contain', 'Back to Home')
   });
 
+});
+
+describe('404 error handling display renders with a 404 error', () => {
+  it('Displays a 404 error image to the user', () => {
+    cy.intercept('GET', 'https://api.nasa.gov/planetary/apod?api_key=xCENGAkMUeSm4npGMPsHqwBltGKg0M0FYSLHdiPw', {
+      statusCode: 404,
+      delay: 200
+    })
+    cy.visit('http://localhost:3000/404')
+      .url().should('eq', 'http://localhost:3000/404')
+      .get('.app-container > div').find('.error-img').should('have.attr', 'src', '404Error.jpeg')
+  });
+});
+
+describe('500 error handling for astronomy api call', () => {
+  it('Displays a 500 error message when the server is down', () => {
+    cy.intercept('GET', 'https://api.nasa.gov/planetary/apod?api_key=xCENGAkMUeSm4npGMPsHqwBltGKg0M0FYSLHdiPw', {
+      statusCode: 500,
+      delay: 200
+    })
+    cy.visit('http://localhost:3000')
+      .get('form').find('.sign-dropdown').select('leo')
+      .get('form').find('[data-cy=submit-button]').click()
+      .get('.app-container').find('h2').should('contain', 'Uhoh! Something is wrong with our system. Please try back later.')
+  });
+});
+
+
+describe('404 error display renders when unknown url path is used', () => {
+  it('Displays a different message when a 404 error comes through to the user', () => {
+    cy.intercept('POST', 'https://aztro.sameerkumar.website/?sign=leo&day=today', {
+      statusCode: 404,
+      delay: 200
+    })
+    cy.visit('http://localhost:3000/bleeblahbloopwrong')
+      .url().should('eq', 'http://localhost:3000/bleeblahbloopwrong')
+      .get('.app-container > div').find('.error-img').should('have.attr', 'src', '404Error.jpeg')
+  });
 });

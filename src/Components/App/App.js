@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
-import Astronomy from '../Astronomy/Astronomy';
-import Astrology from '../Astrology/Astrology';
 import SavedFacts from '../SavedFacts/SavedFacts';
 import SavedScopes from '../SavedScopes/SavedScopes';
 import Form from '../Form/Form';
+import MainPage from '../MainPage/MainPage';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import { signs } from './../../Utils/signs.js'
 import './App.css';
 
@@ -31,16 +31,16 @@ class App extends Component {
   };
 
   saveScope = (horoscopeData) => {
-    if (!this.state.savedHoroscopes.find(scope => scope.description === horoscopeData.description)) {
+    if (!this.state.savedHoroscopes.find(scope => scope.current_date === horoscopeData.current_date)) {
       this.setState({ savedHoroscopes: [...this.state.savedHoroscopes, horoscopeData]})
-      // localStorage.setItem('savedHoroscopes', JSON.stringify([...this.state.savedHoroscopes]));
+      localStorage.setItem('savedHoroscopes', JSON.stringify([...this.state.savedHoroscopes, horoscopeData]));
     }
   }
 
   saveFact = (dailyFact) => {
     if (!this.state.savedFacts.find(fact => fact.date === dailyFact.date)) {
       this.setState({ savedFacts: [...this.state.savedFacts, dailyFact]})
-      // localStorage.setItem('savedFacts', JSON.stringify([...this.state.savedFacts]));
+      localStorage.setItem('savedFacts', JSON.stringify([...this.state.savedFacts, dailyFact]));
     }
   }
 
@@ -59,23 +59,16 @@ class App extends Component {
             />
           }}
           />
-          {this.state.error &&
-            <h3 className='error-msg'>{this.state.error}</h3>
-          }
           {!this.state.error &&
           <div className='app-container'>
+            <Switch>
             <Route exact path="/" render={() => {
-              return <Astronomy
+              return <MainPage
                 saveFact={this.saveFact}
-                isClicked={this.state.isClicked}
-              />
-            }}
-            />
-            <Route exact path="/" render={() => {
-              return <Astrology
                 selectedSign={this.state.selectedSign}
                 isClicked={this.state.isClicked}
                 saveScope={this.saveScope}
+                error={this.state.error}
               />
               }}
             />
@@ -91,6 +84,11 @@ class App extends Component {
               />
               }}
             />
+            <Route path="*" render={() => {
+              return <NotFoundPage />
+              }}
+            />
+            </Switch>
           </div>
           }
         </article>
