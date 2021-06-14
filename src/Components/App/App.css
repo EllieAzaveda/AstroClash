@@ -18,18 +18,15 @@ body {
   justify-content: center;
 }
 
-/*~~~~~~ Responsive ~~~~~~ */
+/*~~~~~~ Responsiveness ~~~~~~ */
 
 @media screen and (max-width: 763px) {
-
   .card {
     width: 40vw;
   }
-
 }
 
 @media screen and (max-width: 600px) {
-
   .app-container {
     display: flex;
     flex-direction: column;
@@ -41,12 +38,9 @@ body {
   .card {
     width: 50vw;
   }
-
 }
 
 @media screen and (max-width: 425px) {
-
-
   .card {
     width: 80vw;
   }
@@ -54,13 +48,10 @@ body {
   .main-img {
     width: 20vw;
   }
-
 }
 
 @media screen and (max-width: 320px) {
-
   .card {
     width: 110vw;
   }
-
 }
