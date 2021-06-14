@@ -20,7 +20,7 @@ body {
 
 /*~~~~~~ Responsiveness ~~~~~~ */
 
-@media screen and (max-width: 763px) {
+@media screen and (max-width: 768px) {
   .card {
     width: 40vw;
   }
