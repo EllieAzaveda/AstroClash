@@ -1,10 +1,6 @@
 .saved-card {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
   height: 30vh;
-  width: 70vw;
+  width: 90%;
   margin: 1em;
   padding: 0;
   border-radius: 15px;
@@ -17,4 +13,8 @@
 
 .saved-description {
   margin: 1em 1.5em;
+}
+
+.nothing-saved {
+  width: 90%;
 }
