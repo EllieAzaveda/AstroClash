@@ -17,7 +17,7 @@ class SavedScopes extends Component {
     if (!this.state.savedHoroscopes.length) {
       return (
         <div className='nothing-saved'>
-          <h1>🔮 You don't have any saved horoscopes... Save your first prophecy today! 🔮</h1>
+          <h1 className='nothing-msg'>🔮 You don't have any saved horoscopes... Save your first prophecy today! 🔮</h1>
         </div>
       )
     } else {
