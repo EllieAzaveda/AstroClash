@@ -37,7 +37,7 @@ class Form extends Component {
               <img className='moon-icon' src='./moon.png' alt='moon icon'/>
             </button>
           </NavLink>
-          <label htmlFor='saved-facts-btn' className='facts-label'>Saved Astronomy Facts</label>
+          <label htmlFor='saved-facts-btn' className='facts-label saved-label'>Saved Astronomy Facts</label>
           <select className='sign-dropdown'
             value={this.state.selectValue}
             onChange={(event) => this.handleChange(event)}
@@ -62,7 +62,7 @@ class Form extends Component {
             style={{fontFamily: "Mate SC, serif"}}>
             SHOW ME THE DIFFERENCE
           </button>
-          <label htmlFor='saved-facts-btn' className='scopes-label'>Saved Horoscopes</label>
+          <label htmlFor='saved-facts-btn' className='scopes-label saved-label'>Saved Horoscopes</label>
           <NavLink to='/saved-horoscopes'>
             <button data-cy='saved-button' className='saved-button saved-scopes-btn'>
               <img className='moon-icon' src='./moon.png' alt='moon icon'/>
