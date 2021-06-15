@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import SavedCard from '../SavedCard/SavedCard';
 import { signs } from './../../Utils/signs.js'
 import './SavedScopes.css';
 
@@ -23,13 +22,9 @@ class SavedScopes extends Component {
     } else {
       return this.state.savedHoroscopes.map(scope => {
         return (
-          <>
-          <SavedCard
-            key={scope.description}
-            date={scope.date}
-            description={scope.description}
-          />
-          </>
+          <div className='astrology-saved-card' key={scope.lucky_number}>
+            <h4 className='astrology-saved-description'>{scope.description}</h4>
+          </div>
         )
       })
     }
@@ -38,7 +33,7 @@ class SavedScopes extends Component {
   render() {
     return (
       <>
-        {this.state.error  &&
+        {this.state.error &&
           <>
             <NavLink to='/'><button data-cy='home-button' className='home-button'>Back to Home Page</button></NavLink>
             <h3>{this.state.savedHoroscopes}</h3>
@@ -47,11 +42,9 @@ class SavedScopes extends Component {
         {!this.state.error &&
           <>
             <NavLink to='/'><button data-cy='home-button' className='home-button'>Back to Home Page</button></NavLink>
-            <>
             <div className='saved-scopes-display'>
               {this.displayScopesCards()}
             </div>
-            </>
           </>
         }
       </>

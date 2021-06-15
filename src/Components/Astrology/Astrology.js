@@ -1,8 +1,9 @@
 import React from 'react';
-import HoroscopeCard from '../HoroscopeCard/HoroscopeCard';
+import AstrologyCard from '../AstrologyCard/AstrologyCard';
 import './Astrology.css';
 
 const Astrology = ({ selectedSign, isClicked, saveScope, error, savedClicked }) => {
+  let id = Date.now()
   return (
     <>
         {!isClicked &&
@@ -15,7 +16,8 @@ const Astrology = ({ selectedSign, isClicked, saveScope, error, savedClicked }) 
         }
         {isClicked &&
           <>
-            <HoroscopeCard
+            <AstrologyCard
+              key={id}
               selectedSign={selectedSign}
               saveScope={saveScope}
               error={error}
@@ -26,5 +28,4 @@ const Astrology = ({ selectedSign, isClicked, saveScope, error, savedClicked }) 
     </>
   )
 }
-
 export default Astrology;

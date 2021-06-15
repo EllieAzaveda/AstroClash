@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { fetchSingleHoroscope } from '../../Utils/APICalls';
 import { cleanHoroscopeData } from '../../Utils/cleaningMethods';
-import './HoroscopeCard.css';
 
-class HoroscopeCard extends Component {
+
+class AstrologyCard extends Component {
   constructor(props){
       super(props);
         this.state = {
@@ -60,4 +60,4 @@ class HoroscopeCard extends Component {
   }
 }
 
-export default HoroscopeCard;
+export default AstrologyCard;

@@ -7,8 +7,7 @@ class Form extends Component {
     super(props);
       this.state = {
         selectedSign: null,
-        isClicked: props.isClicked,
-        isUpdated: props.isUpdated
+        isClicked: props.isClicked
       }
   }
 
@@ -23,7 +22,6 @@ class Form extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-    this.setState({ isUpdated: true });
     this.props.setZodiacSign(this.state.selectedSign);
     this.resetClick();
   }
