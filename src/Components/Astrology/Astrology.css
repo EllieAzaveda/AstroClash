@@ -12,6 +12,22 @@
   background: radial-gradient(circle, #F6F6F6 55%, #DAD7C2, #BBB690, #6DABA9, #386160, #1A1A1A);
 }
 
+.astrology-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 75vh;
+  width: 30vw;
+  margin: 1em;
+  padding: 0;
+  border-radius: 15px;
+  border: .15em solid #345B5A;
+  font-size: 2.5vh;
+  color: #FBEBB2;
+  background-color: #1A1A1A;
+  overflow: scroll;
+}
+
 .card-border {
   display: flex;
   flex-direction: column;
@@ -26,5 +42,17 @@
 .main-astrology-image {
   width: 22vw;
   margin-top: 12vh;
+  border-radius: 50%;
+}
+
+.astrology-image {
+  width: 100%;
+  height: auto;
+  margin-top: 0em;
+  border-radius: 15px 15px 0% 0%;
+}
+
+.already-saved {
+  background-color: #345B5A;
   border-radius: 50%;
 }
