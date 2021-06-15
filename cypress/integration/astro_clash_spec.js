@@ -30,6 +30,16 @@ describe('Show main view of AstroClash App', () => {
     cy.get('.main-astrology-card').find('.main-astrology-image').should('be.visible')
       .get('.card-border > .main-title').should('contain', '..| Astrology |..')
   });
+
+  it('Should display an alert if no zodiac sign is selected', () => {
+    const stub = cy.stub()
+    cy.on ('window:alert', stub)
+    cy.get('form').find('[data-cy=submit-button]').click()
+    .then(() => {
+      expect(stub.getCall(0)).to.be.calledWith('Please select your zodiac sign (Psst! If you don\'t know it, find your birthday in the ranges!)')
+    })
+  });
+
 });
 
 describe('The user should be able to interact with the Astrology side of the AstroClash App', () => {
@@ -64,9 +74,8 @@ describe('The user should be able to interact with the Astrology side of the Ast
       .get('.astrology-card > .save-feature').find('[data-cy=save-button]').click()
       .get('form').find('.saved-scopes-btn').click()
       .url().should('include', '/saved-horoscopes')
-      .get('.saved-scopes-display > .saved-card').find(':nth-child(1)').should('contain', 'Date:')
-      .get('.saved-scopes-display > .saved-card').find(':nth-child(2)').should('have.attr', 'src')
-      .get('.saved-scopes-display > .saved-card').find(':nth-child(3)').should('contain', 'Description:')
+      .get('.astrology-saved-card').find('[data-cy=astrology-saved-date]').should('contain', 'Date:')
+      .get('.astrology-saved-card').find('[data-cy=astrology-saved-description]').should('contain', 'Description:')
   });
 
   it('Should display a message when no horoscopes are saved', () => {
@@ -124,9 +133,9 @@ describe('The user should be able to interact with the Astronomy side of the Ast
       .get('.astronomy-card > .save-feature').find('.save-button').click()
       .get('form').find('.saved-facts-btn').click()
       .url().should('include', '/saved-astronomy-facts')
-      .get('.saved-facts-display > .saved-card').find(':nth-child(1)').should('contain', 'Date: 2021-06-13')
-      .get('.saved-facts-display > .saved-card').find(':nth-child(2)').should('have.attr', 'src', 'http://www.weathernationtv.com/app/uploads/5-18_2126_rhp_wright-wy_storm-structure_TW_@wxstorm.jpg')
-      .get('.saved-facts-display > .saved-card').find(':nth-child(3)').should('contain', 'Description: Is that a cloud or an alien spaceship?')
+      .get('[data-cy=astronomy-image]').should('have.attr', 'src', 'http://www.weathernationtv.com/app/uploads/5-18_2126_rhp_wright-wy_storm-structure_TW_@wxstorm.jpg')
+      .get('[data-cy=astronomy-saved-title]').should('contain', 'A Supercell Thunderstorm Over Texas')
+      .get('[data-cy=astronomy-saved-explanation]').should('contain', 'Is that a cloud or an alien spaceship?')
   });
 
   it('Should display a message when no facts are saved', () => {
