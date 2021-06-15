@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { signs } from './../../Utils/signs.js'
 import './SavedScopes.css';
 
@@ -51,5 +52,9 @@ class SavedScopes extends Component {
     )
   }
 }
+
+SavedScopes.propTypes = {
+  savedHoroscopes:PropTypes.array
+};
 
 export default SavedScopes;
