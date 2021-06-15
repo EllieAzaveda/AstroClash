@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Form.css';
 
 class Form extends Component {
@@ -71,5 +72,10 @@ class Form extends Component {
     )
   }
 }
+
+Form.propTypes = {
+  setZodiacSign: PropTypes.func,
+  isClicked: PropTypes.bool,
+};
 
 export default Form;

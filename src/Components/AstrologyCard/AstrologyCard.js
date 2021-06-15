@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { fetchSingleHoroscope } from '../../Utils/APICalls';
 import { cleanHoroscopeData } from '../../Utils/cleaningMethods';
-
+import PropTypes from 'prop-types';
 
 class AstrologyCard extends Component {
   constructor(props){
@@ -59,5 +59,12 @@ class AstrologyCard extends Component {
     )
   }
 }
+
+AstrologyCard.propTypes = {
+  signData: PropTypes.object,
+  signName: PropTypes.string,
+  horoscopeData: PropTypes.object,
+  savedClicked: PropTypes.bool
+};
 
 export default AstrologyCard;

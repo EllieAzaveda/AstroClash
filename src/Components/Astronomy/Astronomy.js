@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { fetchDailyFact } from '../../Utils/APICalls';
 import { cleanAstronomyData } from '../../Utils/cleaningMethods';
+import PropTypes from 'prop-types';
 import './Astronomy.css';
 
 class Astronomy extends Component {
@@ -10,12 +11,12 @@ class Astronomy extends Component {
         dailyFact: {},
         isClicked: props.isClicked,
         error: '',
-        savedClicked: false
+        factClicked: false
       }
   }
 
   handleFactClick = (factData) => {
-    this.setState({ savedClicked: true });
+    this.setState({ factClicked: true });
     this.props.saveFact(factData);
   }
 
@@ -52,7 +53,7 @@ class Astronomy extends Component {
           <h5 data-cy='explanation' className='explanation'>{this.state.dailyFact.explanation}</h5>
           <h5 data-cy='copyright'>Copyright: {this.state.dailyFact.copyright}</h5>
           <h5 className='save-feature'>
-            <button data-cy='save-button' className={!this.state.savedClicked ? 'save-button' : 'already-saved'}>
+            <button data-cy='save-button' className={!this.state.factClicked ? 'save-button' : 'already-saved'}>
               <img className='save-button-img'src='save-img.png' alt='save button' onClick={(event) => this.handleFactClick(this.state.dailyFact)}/>
             </button>
             <label htmlFor='save-button'>Save this Fact</label>
@@ -63,5 +64,10 @@ class Astronomy extends Component {
     )
   }
 }
+
+Astronomy.propTypes = {
+  saveFact: PropTypes.func,
+  isClicked: PropTypes.bool
+};
 
 export default Astronomy;

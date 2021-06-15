@@ -52,6 +52,18 @@
   border-radius: 15px 15px 0% 0%;
 }
 
+.save-zodiac-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: .6em;
+  background: -webkit-linear-gradient(top, #E9D07C, #AA893C, #FDE08D, #8f6B29);
+  border: none;
+  border-radius: 50%;
+  height: 2.5em;
+  width: 2.5em;
+}
+
 .already-saved {
   background-color: #345B5A;
   border-radius: 50%;

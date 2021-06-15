@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './SavedFacts.css';
 
 class SavedFacts extends Component {
@@ -20,15 +21,13 @@ class SavedFacts extends Component {
     } else {
       return this.state.savedFacts.map(fact => {
         return (
-          <>
-            <div className='astronomy-saved-card'>
-              <img data-cy='astronomy-image' className='astronomy-saved-image' src={fact.url} alt={`${fact.title}`}/>
-              <div className='saved-explanation'>
-                <h4 className='astronomy-saved-title'>..| {fact.title} |..</h4>
-                <h4 className='astronomy-saved-explanation'>{fact.explanation}</h4>
-              </div>
+          <div className='astronomy-saved-card' key={fact.date}>
+            <img data-cy='astronomy-image' className='astronomy-saved-image' src={fact.url} alt={`${fact.title}`}/>
+            <div className='saved-explanation'>
+              <h4 className='astronomy-saved-title'>..| {fact.title} |..</h4>
+              <h4 className='astronomy-saved-explanation'>{fact.explanation}</h4>
             </div>
-          </>
+          </div>
         )
       })
     }
@@ -55,5 +54,9 @@ class SavedFacts extends Component {
     )
   }
 }
+
+SavedFacts.propTypes = {
+  savedFacts: PropTypes.array
+};
 
 export default SavedFacts;
