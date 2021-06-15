@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import AstronomyFact from '../AstronomyFact/AstronomyFact';
 import { fetchDailyFact } from '../../Utils/APICalls';
 import { cleanAstronomyData } from '../../Utils/cleaningMethods';
 import './Astronomy.css';
@@ -47,12 +46,18 @@ class Astronomy extends Component {
         </div>
       }
       {this.props.isClicked && !this.state.error &&
-        <AstronomyFact
-          dailyFact={this.state.dailyFact}
-          saveFact={this.props.saveFact}
-          savedClicked={this.state.savedClicked}
-          handleFactClick={this.handleFactClick}
-        />
+        <div className='astronomy-card card'>
+          <img data-cy='astronomy-image' className='astronomy-image' src={this.state.dailyFact.url} alt={`${this.state.dailyFact.title}`}/>
+          <h3 data-cy='title' className='title'>..| {this.state.dailyFact.title} |..</h3>
+          <h5 data-cy='explanation' className='explanation'>{this.state.dailyFact.explanation}</h5>
+          <h5 data-cy='copyright'>Copyright: {this.state.dailyFact.copyright}</h5>
+          <h5 className='save-feature'>
+            <button data-cy='save-button' className={!this.state.savedClicked ? 'save-button' : 'already-saved'}>
+              <img className='save-button-img'src='save-img.png' alt='save button' onClick={(event) => this.handleFactClick(this.state.dailyFact)}/>
+            </button>
+            <label htmlFor='save-button'>Save this Fact</label>
+          </h5>
+        </div>
       }
       </>
     )
