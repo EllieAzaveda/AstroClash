@@ -44,11 +44,9 @@ class SavedScopes extends Component {
         {!this.state.error &&
           <>
             <NavLink to='/'><button data-cy='home-button' className='home-button'>Back to Home Page</button></NavLink>
-            <>
             <div className='saved-scopes-display'>
               {this.displayScopesCards()}
             </div>
-            </>
           </>
         }
       </>
