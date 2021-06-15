@@ -24,8 +24,8 @@ class SavedFacts extends Component {
           <div className='astronomy-saved-card' key={fact.date}>
             <img data-cy='astronomy-image' className='astronomy-saved-image' src={fact.url} alt={`${fact.title}`}/>
             <div className='saved-explanation'>
-              <h4 className='astronomy-saved-title'>..| {fact.title} |..</h4>
-              <h4 className='astronomy-saved-explanation'>{fact.explanation}</h4>
+              <h4 data-cy='astronomy-saved-title' className='astronomy-saved-title'>..| {fact.title} |..</h4>
+              <h4 data-cy='astronomy-saved-explanation' className='astronomy-saved-explanation'>{fact.explanation}</h4>
             </div>
           </div>
         )
