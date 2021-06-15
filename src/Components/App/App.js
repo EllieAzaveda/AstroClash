@@ -37,7 +37,7 @@ class App extends Component {
     if (!this.state.savedHoroscopes.find(scope => scope.lucky_number === horoscopeData.lucky_number)) {
       this.setState({ savedHoroscopes: [...this.state.savedHoroscopes, horoscopeData]})
       this.setState({ savedClicked: true });
-    } 
+    }
   }
 
   saveFact = (dailyFact) => {
