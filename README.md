@@ -10,20 +10,29 @@
 
 
 ## Description
-
+Do you love astronomy, but always get confused when someone mentions astrology? Do you live by your astrological chart and only date your zodiac love matches, but you're constantly offended when people think your passion lies in astronomy? This app is for you!! You don't even have to know the difference between astronomy and astrology to use it! Shucks, you don't even have to know what astronomy or astrology is to use this app! Not only will you learn a new astronomy fun fact daily, but you can also get your daily reading. If you want to prove your friends that your reading from last week came true, you can save it! If you desperately need to learn more about the universe, you can save all the daily facts your brain can soak up!
 
 
 #### Main Page
 
+![HoroscopeSaveFeature](https://user-images.githubusercontent.com/76409536/121985812-b275a980-cd52-11eb-8fc7-e14edd24fac1.gif)
 
-#### Comic Details 
+![AstronomySaveFeature](https://user-images.githubusercontent.com/76409536/121985807-b1447c80-cd52-11eb-95fb-0a68bb96b70e.gif)
 
 
-#### Mobile
+#### 404 Error Handling
+
+![404_ErrorPage](https://user-images.githubusercontent.com/76409536/121985499-12b81b80-cd52-11eb-968c-190127b76d99.gif)
+
+
+#### Fully Responsive
+
+![Fully_Responsive](https://user-images.githubusercontent.com/76409536/121985506-177ccf80-cd52-11eb-82af-a2d123c96d36.gif)
 
 
 #### Accessibility Audit
 
+<img width="589" alt="Screen Shot 2021-06-14 at 3 08 29 PM" src="https://user-images.githubusercontent.com/76409536/121980652-8dc90400-cd49-11eb-8656-41564e257bc8.png">
 
 
 ## Setup
@@ -39,7 +48,8 @@ OR
 * View deployed application [here]()
 
 ## Running Tests
-* Once in project directory, run `npx cypress open` 
+* Once in project directory, run `npm run cypress:open![404_Error](https://user-images.githubusercontent.com/76409536/121985201-860d5d80-cd51-11eb-8b69-5e8d55faeab7.gif)
+` 
 * In the `integration` directory, click on the file you'd like to see the testing for. 
 * A Cypress window should open
 * Open dev tools in the Cypress window 
@@ -75,13 +85,13 @@ OR
 ## Reflections
 
 #### Learning Goals
+My learning goals for this project were to solidify my React, Router, and Cypress Testing skills, as well as enhance my css and responsive design abilities. I also wanted to learn how to implement prop typechecking.
 
 
-#### Evolution of the Project 
+#### Evolution of the Project && Personal Reflection
+I started this project by thoroughly planning all of my class and functional components and diagrammed the way they would communicate. As I began to build out the components, I found that not all of the components were needed or were used the way I initially planned. Once the main components were built out, I implemented cypress and built out mostly "happy paths" along with some "sad paths". I spent some time styling and responsiveness, then adding extensive error handling/conditional rendering as I implemented Router. I finished the project by adding more "sad paths", testing for the error handling I implemented.
 
+I believe I achieved all of my learning goals. I really struggled with adding a 404 error page, because I initally had the Astrology and Astronomy cards in individual routes in App. I needed to add a Switch to ensure that the 404 error page would be handled properly, so I decided to build a "helper" functional component ("Main Page") to handle this. Later on, I'd love to be able to fully refactor to avoid prop-drilling here, as well as to add delete functionality and persisting data with saves/deletes.
 
-#### Wins 
-
-
-#### Challenges
+ 
 
