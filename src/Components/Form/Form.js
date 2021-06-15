@@ -22,9 +22,13 @@ class Form extends Component {
   }
 
   handleClick = (event) => {
-    event.preventDefault();
-    this.props.setZodiacSign(this.state.selectedSign);
-    this.resetClick();
+    if(!this.state.selectedSign) {
+      alert("Please select your zodiac sign (Psst! If you don't know it, find your birthday in the ranges!)")
+    } else {
+      event.preventDefault();
+      this.props.setZodiacSign(this.state.selectedSign);
+      this.resetClick();
+    }
   }
 
   render() {
@@ -63,7 +67,7 @@ class Form extends Component {
           </button>
           <label htmlFor='saved-facts-btn' className='scopes-label saved-label'>Saved Horoscopes</label>
           <NavLink to='/saved-horoscopes'>
-            <button data-cy='saved-button' className='saved-button saved-scopes-btn'>
+            <button data-cy='saved-scopes-button' className='saved-button saved-scopes-btn'>
               <img className='moon-icon' src='./moon.png' alt='moon icon'/>
             </button>
           </NavLink>
