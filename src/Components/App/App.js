@@ -33,10 +33,11 @@ class App extends Component {
   };
 
   saveScope = (horoscopeData) => {
-    if (!this.state.savedHoroscopes.find(scope => scope.current_date === horoscopeData.current_date)) {
+    console.log(horoscopeData)
+    if (!this.state.savedHoroscopes.find(scope => scope.lucky_number === horoscopeData.lucky_number)) {
       this.setState({ savedHoroscopes: [...this.state.savedHoroscopes, horoscopeData]})
       this.setState({ savedClicked: true });
-    }
+    } 
   }
 
   saveFact = (dailyFact) => {
