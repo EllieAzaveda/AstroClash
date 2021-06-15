@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchSingleHoroscope } from '../../Utils/APICalls';
 import { cleanHoroscopeData } from '../../Utils/cleaningMethods';
 
+
 class AstrologyCard extends Component {
   constructor(props){
       super(props);
