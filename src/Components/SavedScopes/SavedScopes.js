@@ -22,11 +22,9 @@ class SavedScopes extends Component {
     } else {
       return this.state.savedHoroscopes.map(scope => {
         return (
-          <>
-            <div className='astrology-saved-card'>
-              <h4 className='astrology-saved-description'>{scope.description}</h4>
-            </div>
-          </>
+          <div className='astrology-saved-card' key={scope.lucky_number}>
+            <h4 className='astrology-saved-description'>{scope.description}</h4>
+          </div>
         )
       })
     }
