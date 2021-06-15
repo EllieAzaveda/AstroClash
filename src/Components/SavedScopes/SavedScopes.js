@@ -24,7 +24,8 @@ class SavedScopes extends Component {
       return this.state.savedHoroscopes.map(scope => {
         return (
           <div className='astrology-saved-card' key={scope.lucky_number}>
-            <h4 className='astrology-saved-description'>{scope.description}</h4>
+            <h4 data-cy='astrology-saved-date' className='astrology-saved-date'>Date: {scope.current_date}</h4>
+            <h4 data-cy='astrology-saved-description' className='astrology-saved-description'>Description: {scope.description}</h4>
           </div>
         )
       })
