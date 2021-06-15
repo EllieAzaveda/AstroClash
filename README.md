@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# AstroClash
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Table of Contents
+* [Description](#description)
+* [Setup](#setup)
+* [Running Tests](#runningtests)
+* [Technologies](#technologies)
+* [Authors](#author)
+* [Reflection](#reflections)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### Main Page
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Comic Details 
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Mobile
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Accessibility Audit
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Setup
+* From your terminal, clone this repository
+`git clone https://github.com/EllieAzaveda/AstroClash.git`  
+* `cd` into the project directory
+* Run `$npm install` to install dependencies
+* Run `$npm start`
+* Your default browser should automatically open Comic Cache
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+OR
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* View deployed application [here]()
 
-## Learn More
+## Running Tests
+* Once in project directory, run `npx cypress open` 
+* In the `integration` directory, click on the file you'd like to see the testing for. 
+* A Cypress window should open
+* Open dev tools in the Cypress window 
+* Go to the Application tab, and check 'Bypass for network' under Service Worker 
+* Re-run tests  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Technologies
+<p>
+  <img alt="React" src="https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB"/>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white"/>
 
-### Code Splitting
+  <img alt="JavaScript" src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  <img alt="HTML5" src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/>
 
-### Analyzing the Bundle Size
+  <img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  <img alt="Cypress.io" src="https://camo.githubusercontent.com/bd9c528263673db09f67bcf3445ba8e5512cfb6829e966a31ef7a378933b231a/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d437970726573732e696f2d626c61636b3f7374796c653d666f722d7468652d6261646765266c6f676f3d637970726573732e696f266c6f676f436f6c6f723d7768697465"/>
+</p>
 
-### Making a Progressive Web App
+## Author
+<table>
+    <tr>
+        <td> Ellie Azaveda <a href="https://github.com/EllieAzaveda">GH</td>
+    </tr>
+    </tr>
+        <td><img src="https://avatars.githubusercontent.com/u/76409536?v=4" alt="E. Azaveda" width="125" height="auto" /></td>
+    </tr>
+</table>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Reflections
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### Learning Goals
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Evolution of the Project 
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Wins 
+
+
+#### Challenges
+
