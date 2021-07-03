@@ -61,7 +61,7 @@ class App extends Component {
           <div className='app-container'>
             <Switch>
               <Route exact path="/" render={() => {
-                return <MainPage
+                return <MainPage 
                   saveFact={this.saveFact}
                   selectedSign={this.state.selectedSign}
                   isClicked={this.state.isClicked}
