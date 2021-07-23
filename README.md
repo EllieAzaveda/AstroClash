@@ -45,7 +45,7 @@ Do you love astronomy, but always get confused when someone mentions astrology? 
 
 OR
 
-* View deployed application [here]()
+* View deployed application [here](http://astro-clash.surge.sh/)
 
 ## Running Tests
 * Once in project directory, run `npm run cypress:open![404_Error](https://user-images.githubusercontent.com/76409536/121985201-860d5d80-cd51-11eb-8b69-5e8d55faeab7.gif)
